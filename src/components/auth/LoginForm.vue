@@ -129,15 +129,6 @@ const checkError:any = () => {
 //     extraTokenParams: {scope: scopes},
 // };
 
-const loginWithZoho:any = async () => {
-    console.log(`I am here lil chicito`)
-    await store.dispatch(actionTypes.FetchZohoCreds)
-    const authCredentials:any = JSON.stringify(store.getters.getAuthCreds.value)
-    console.log(`auth credentials retrieved: ${authCredentials}`)
-    route.push('/walure-dashboard')
-    // return authCredentials
-}
-
 const submit:any = () => {
     console.log('hello');
     checkError();
@@ -193,7 +184,7 @@ const submit:any = () => {
                 </button>
             </div>
         </form>
-        <div class="flex items-center justify-center mt-8 gap-3">
+        <!-- <div class="flex items-center justify-center mt-8 gap-3">
             <hr class="bg-primary w-full h-[2px]"/>
             <p>OR</p>
             <hr class="bg-primary w-full h-[2px]"/>
@@ -202,7 +193,7 @@ const submit:any = () => {
             <button @click="loginWithZoho" class="bg-[#CE2232] flex w-full font-semibold bg-opacity-70 hover:bg-opacity-100 justify-center text-white py-3 px-5 rounded">
                 Sign in with Zoho
             </button>
-        </div>
+        </div> -->
     </div>
 </template>
 

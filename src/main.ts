@@ -7,20 +7,22 @@ import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css'
 import '@vueup/vue-quill/dist/vue-quill.bubble.css'
 import axios from 'axios'
-import idSrvAuth from './idSrvAuth'
+// import idSrvAuth from './idSrvAuth'
 
 // axios.defaults.baseURL = 'http://localhost:3000'
 
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token')
 
-idSrvAuth.startup().then((ok:any) => {
-    if (ok) {
-        const app:any = createApp(App).use(router).use(store).component('QuillEditor', QuillEditor);
+createApp(App).use(router).use(store).component('QuillEditor', QuillEditor).mount('#app');
 
-        app.config.globalProperties.$oidc = idSrvAuth
+// idSrvAuth.startup().then((ok:any) => {
+//     if (ok) {
+//         const app:any = createApp(App).use(router).use(store).component('QuillEditor', QuillEditor);
 
-        app.mount('#app')
-    } else {
-        console.log(`Startup was not okay`)
-    }
-});
+//         app.config.globalProperties.$oidc = idSrvAuth
+
+//         app.mount('#app')
+//     } else {
+//         console.log(`Startup was not okay`)
+//     }
+// });

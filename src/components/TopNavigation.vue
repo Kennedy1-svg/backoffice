@@ -7,22 +7,10 @@ export default {
 <script setup lang="ts">
 import { computed } from 'vue'
 import SvgIcons from '../components/SvgIcons.vue';
-import { useStore } from 'vuex';
-import { addEmptyData } from '../helpers/api';
-
-const store = useStore();
-
-const endSessionEndpoint:any = computed(() => {
-    return store.getters.getEndSessionEndpoint.value;
-})
 
 const logout:any = async () => {
-	const token:any = localStorage.getItem('token')
-	// $oidc.signOut
-	let response:any = await addEmptyData(endSessionEndpoint.value, token)
-	console.log(`emergency ${endSessionEndpoint}`)
-	// localStorage.clear();
-	// window.location.href = '/';
+	localStorage.clear();
+	window.location.href = '/';
 }
 </script>
 

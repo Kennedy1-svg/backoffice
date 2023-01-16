@@ -52,11 +52,6 @@ export default {
         return state.token
       })
     },
-    getAuthCreds: (state: any) => {
-      return computed(() => {
-        return state.auth_credentials
-      })
-    },
     getLoginAlertStatus: (state: any) => {
       return computed(() => {
         return state.alert_status
@@ -70,11 +65,6 @@ export default {
     getTokenType: (state: any) => {
       return computed(() => {
         return state.token_type
-      })
-    },
-    getEndSessionEndpoint: (state: any) => {
-      return computed(() => {
-        return state.end_session_endpoint
       })
     },
     getRefreshToken: (state: any) => {
@@ -99,60 +89,6 @@ export default {
     },
     [mutationTypes.SetUser] (state: any, data: any) {
       state.user = data
-    },
-    [mutationTypes.SetAuthCreds] (state: any, data: any) {
-      state.auth_credentials = data
-    },
-    [mutationTypes.SetIssuer] (state: any, data: any) {
-      state.issuer = data
-    },
-    [mutationTypes.SetAuthEndpoint] (state: any, data: any) {
-      state.authorization_endpoint = data
-    },
-    [mutationTypes.SetTokenEndpoint] (state: any, data: any) {
-      state.token_endpoint = data
-    },
-    [mutationTypes.SetEndSessionEndpoint] (state: any, data: any) {
-      state.end_session_endpoint = data
-    },
-    [mutationTypes.SetJwksUri] (state: any, data: any) {
-      state.jwks_uri = data
-    },
-    [mutationTypes.SetGrantType] (state: any, data: any) {
-      state.grant_types_supported = data
-    },
-    [mutationTypes.SetResponseType] (state: any, data: any) {
-      state.response_types_supported = data
-    },
-    [mutationTypes.SetResponseMode] (state: any, data: any) {
-      state.response_modes_supported = data
-    },
-    [mutationTypes.SetScopes] (state: any, data: any) {
-      state.scopes_supported = data
-    },
-    [mutationTypes.SetClaims] (state: any, data: any) {
-      state.claims_supported = data
-    },
-    [mutationTypes.SetIdTokenSigning] (state: any, data: any) {
-      state.id_token_signing_alg_values_supported = data
-    },
-    [mutationTypes.SetCodeChallengeMethod] (state: any, data: any) {
-      state.code_challenge_methods_supported = data
-    },
-    [mutationTypes.SetSubjectType] (state: any, data: any) {
-      state.subject_types_supported = data
-    },
-    [mutationTypes.SetTokenEndpointAuth] (state: any, data: any) {
-      state.token_endpoint_auth_methods_supported = data
-    },
-    [mutationTypes.SetClaimsParameter] (state: any, data: any) {
-      state.claims_parameter_supported = data
-    },
-    [mutationTypes.SetRequestParams] (state: any, data: any) {
-      state.request_parameter_supported = data
-    },
-    [mutationTypes.SetRequestURIParam] (state: any, data: any) {
-      state.request_uri_parameter_supported = data
     },
     [mutationTypes.SetToken] (state: any, data: any) {
       localStorage.setItem('token', state.token = data)
@@ -201,33 +137,6 @@ export default {
     },
     async [actionTypes.FetchUser] ({ commit }: any, data: any) {
       commit(mutationTypes.SetUser, data)
-    },
-    async [actionTypes.FetchZohoCreds] ({ commit }: any, data: any = `${auth_creds}`) {
-      console.log(`data is ${data}`)
-      const authdata:any = await getData(data)
-      console.log(`data is ${JSON.stringify(authdata.issuer)}`)
-      console.log(`authdata is ${authdata.issuer}`)
-      commit(mutationTypes.SetAuthCreds, authdata)
-      commit(mutationTypes.SetIssuer, authdata.issuer)
-      commit(mutationTypes.SetAuthEndpoint, authdata.authorization_endpoint)
-      commit(mutationTypes.SetTokenEndpoint, authdata.token_endpoint)
-      commit(mutationTypes.SetEndSessionEndpoint, authdata.end_session_endpoint)
-      commit(mutationTypes.SetJwksUri, authdata.jwks_uri)
-      commit(mutationTypes.SetGrantType, authdata.grant_types_supported)
-      commit(mutationTypes.SetResponseType, authdata.response_types_supported)
-      commit(mutationTypes.SetResponseMode, authdata.response_modes_supported)
-      commit(mutationTypes.SetScopes, authdata.scopes_supported)
-      commit(mutationTypes.SetClaims, authdata.claims_supported)
-      commit(mutationTypes.SetIdTokenSigning, authdata.id_token_signing_alg_values_supported)
-      commit(mutationTypes.SetCodeChallengeMethod, authdata.code_challenge_methods_supported)
-      commit(mutationTypes.SetSubjectType, authdata.subject_types_supported)
-      commit(mutationTypes.SetTokenEndpointAuth, authdata.token_endpoint_auth_methods_supported)
-      commit(mutationTypes.SetClaimsParameter, authdata.claims_parameter_supported)
-      commit(mutationTypes.SetRequestParams, authdata.request_parameter_supported)
-      commit(mutationTypes.SetRequestURIParam, authdata.request_uri_parameter_supported)
-      console.log(`authdata authorization_endpoint is ${authdata.authorization_endpoint}`)
-      console.log(`authdata token_endpoint is ${authdata.token_endpoint}`)
-      console.log(`authdata response_types_supported is ${authdata.response_types_supported}`)
     },
   }
 }
