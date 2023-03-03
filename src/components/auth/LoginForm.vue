@@ -59,7 +59,7 @@ const login:any = async () => {
     params.append('scope', `${scope}`);
 
     const request:any = {
-        url: `${api_url}connect/token`,
+        url: `${api_url}api/auth/token`,
         data: params,
     }
 

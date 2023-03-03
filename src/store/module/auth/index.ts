@@ -1,7 +1,7 @@
 import { computed } from 'vue'
 import * as mutationTypes from './constants/mutation'
 import * as actionTypes from './constants/action'
-import { auth_creds } from '../../../config'
+// import { auth_creds } from '../../../config'
 import { addData, getData, editData, removeData } from '../../../helpers/api'
 
 export default {
