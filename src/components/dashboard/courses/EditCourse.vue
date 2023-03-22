@@ -139,7 +139,7 @@ const checkError:any = () => {
         errors.title = false;
         errors.titleText = ''
     }
-    
+
     if (!newCourse.value.courseCode) {
         errors.courseCode = true;
         errors.courseCodeText = 'Course code is required'
@@ -423,13 +423,13 @@ const level_options:any = [
 const deselectCategory:any = async () => {
     console.log('on deselect')
     const request:any = `${api_url}api/coursecategory/get-categories`;
-    await store.dispatch(courseActionTypes.FetchCourseCategories, request)  
+    await store.dispatch(courseActionTypes.FetchCourseCategories, request)
 }
 
 const deselect:any = async () => {
     console.log('on deselect')
     const request:any = `${api_url}api/coursecategory/get-categories`;
-    await store.dispatch(courseActionTypes.FetchCourseCategories, request)  
+    await store.dispatch(courseActionTypes.FetchCourseCategories, request)
 }
 
 const categories:any = computed(() => {
@@ -495,7 +495,7 @@ const editCourse:any = async () => {
     formData.append('isActive', newCourse.value.isActive)
 
     // console.log('formData', JSON.parse(JSON.stringify(formData)))
-    
+
     // Display the values
 // for (var value of formData.entries()) {
 //    console.log(value);
@@ -515,7 +515,7 @@ const editCourse:any = async () => {
     }
     console.log('newData', newData)
     await store.dispatch(courseActionTypes.EditCourse, newData)
-    const result = await store.getters.getCourse
+    const result:any = await store.getters.getCourse
     closeModal()
     store.commit(courseMutationTypes.SetNewCourse, {})
     // formEl.reset()
@@ -644,7 +644,7 @@ const disabledView:any = 'bg-gray-300';
                     <label for="CourseLine1" class="font-semibold">
                         Levels*
                     </label>
-                    
+
                     <!-- <select @focus="checkError" @keyup="checkError" class="pl-5 text-sm py-3 bg-transparent rounded border text-grey" v-model="newCourse.levels" name="levels" id="levels">
                         <option value="">Select option</option>
                         <option value="beginner">Beginner</option>
@@ -728,7 +728,7 @@ const disabledView:any = 'bg-gray-300';
                                 <SvgIcons name="upload" />
                                 <p class="pt-2 text-sm tracking-wider font-semibold group-hover:text-gray-600">
                                     Upload Document</p>
-                            </div>                            
+                            </div>
                             <input type="file" name="imageFile" @change="onChangeThumbnail" class="opacity-0 absolute" accept=".png, .jpg, .mp4" />
                         </label>
                         <img class="w-36 p-1 " :class="[isThumbnailActive && props.name == 'Edit' && isThumbnailRemoved ? '' : 'hidden']" id="thumbnailimage" alt="course thumbnail image">

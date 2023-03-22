@@ -64,14 +64,14 @@ export default {
       console.log('contacts', contacts)
       if (contacts.payload) {
         await commit(mutationTypes.SetContacts, contacts)
-      // } else if (contacts.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (contacts.response.status === 401) {
+        router.push({ name: 'Login' });
       }
     },
     async [actionTypes.FetchEditContact] ({ commit }: any, data: any) {
       const token:any = localStorage.getItem('token')
       console.log('token here')
-      const contact = await fetchData(data, token)
+      const contact:any = await fetchData(data, token)
       console.log('data tch', data)
       // console.log('Icontacts', contact.payload)
     //   console.log('Icontacts', contacts.value)
@@ -80,21 +80,21 @@ export default {
     //   console.log('Icontacts', contacts.value)
       if (contact.payload) {
         await commit(mutationTypes.SetEditContact, contact.payload)
-      // } else if (contact.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (contact.response.status === 401) {
+        router.push({ name: 'Login' });
       }
       // await commit(mutationTypes.SetNewContact, contact.payload)
     },
     async [actionTypes.RemoveContact] ({ commit, dispatch }: any, data: any) {
       const token:any = localStorage.getItem('token')
       console.log('token here')
-      const contact = await removeData(data, token)
+      const contact:any = await removeData(data, token)
       if (!contact.hasErrors) {
         await commit(mutationTypes.SetContactAlertText, 'Contact removed successfully')
         await commit(mutationTypes.SetContactAlertStatus, true)
         await dispatch(actionTypes.FetchContacts)
-      // } else if (contact.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (contact.response.status === 401) {
+        router.push({ name: 'Login' });
       } else if (contact.message.includes('400')) {
         await commit(mutationTypes.SetContactAlertText, 'Invalid Id!')
         await commit(mutationTypes.SetContactAlertStatus, true)

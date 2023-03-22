@@ -105,7 +105,7 @@ const checkError:any = () => {
         errors.FirstName = false;
         errors.FirstNameText = ''
     }
-    
+
     if (!newApplicant.value.LastName) {
         errors.LastName = true;
         errors.LastNameText = 'Last name is required'
@@ -207,7 +207,7 @@ const checkError:any = () => {
     } else {
         isError.value = false;
         isDisabled.value = false;
-    }   
+    }
 }
 
 const courses:any = computed(() => {
@@ -239,7 +239,7 @@ const addCourseApplicant:any = async () => {
     // formData.append('course', newApplicant.value.course)
 
     // console.log('formData', JSON.parse(JSON.stringify(formData)))
-    
+
     // Display the values
 // for (var value of formData.entries()) {
 //    console.log(value);
@@ -259,7 +259,7 @@ const addCourseApplicant:any = async () => {
     }
     console.log('newData', newData)
     await store.dispatch(courseActionTypes.AddNewCourseApplicant, newData)
-    const result = await store.getters.getCourseApplicants
+    const result:any = await store.getters.getCourseApplicants
     closeModal()
     store.commit(courseMutationTypes.SetNewCourseApplicant, {})
     // formEl.reset()
@@ -365,7 +365,7 @@ const disabledView:any = 'bg-gray-300';
                     <label for="course" class="font-semibold">
                         Course*
                     </label>
-                    
+
                     <!-- <select @focus="checkError" @keyup="checkError" class="pl-5 text-sm py-3 bg-transparent rounded border text-grey" v-model="newApplicant.course" name="course" id="course">
                         <option value="">Select option</option>
                         <option value="male">Male</option>

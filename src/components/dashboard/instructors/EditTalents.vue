@@ -91,7 +91,7 @@ const checkError:any = () => {
         errors.firstName = false;
         errors.firstNameText = ''
     }
-    
+
     if (!newTalent.value.lastName) {
         errors.lastName = true;
         errors.lastNameText = 'Last name is required'
@@ -113,7 +113,7 @@ const checkError:any = () => {
         errors.email = false;
     }
 
-    
+
     if (!newTalent.value.gitHubUrl) {
         errors.github = true;
         errors.githubText = 'Github url is required'
@@ -124,7 +124,7 @@ const checkError:any = () => {
         errors.github = false;
         errors.githubText = ''
     }
-    
+
     if (!newTalent.value.linkedInUrl) {
         errors.linkedin = true;
         errors.linkedinText = 'Linkedin url is required'
@@ -135,7 +135,7 @@ const checkError:any = () => {
         errors.linkedin = false;
         errors.linkedinText = ''
     }
-    
+
     if (!newTalent.value.resumeUrl) {
         errors.resume = true;
         errors.resumeText = 'Your resume is required'
@@ -230,7 +230,7 @@ const checkError:any = () => {
     } else {
         isError.value = false;
         isDisabled.value = false;
-    }   
+    }
 }
 
 let onResumeUpload = ref(false)
@@ -521,7 +521,7 @@ const editTalent:any = async () => {
     }
 
     // console.log('formData', JSON.parse(JSON.stringify(formData)))
-    
+
     // Display the values
 // for (var value of formData.entries()) {
 //    console.log(value);
@@ -541,7 +541,7 @@ const editTalent:any = async () => {
     }
     console.log('newData', newData)
     await store.dispatch(actionTypes.EditTalent, newData)
-    const result = await store.getters.getTalents
+    const result:any = await store.getters.getTalents
     closeModal()
     // formEl.reset()
     // console.log('result', JSON.parse(JSON.stringify(result.value)))
@@ -620,7 +620,7 @@ const disabledView:any = 'bg-gray-300';
                     <label for="gender" class="font-semibold">
                         Gender*
                     </label>
-                    
+
                     <!-- <select @focus="checkError" @keyup="checkError" class="pl-5 text-sm py-3 bg-transparent rounded border text-grey" v-model="newTalent.gender" name="gender" id="gender">
                         <option value="">Select option</option>
                         <option value="male">Male</option>
@@ -635,7 +635,7 @@ const disabledView:any = 'bg-gray-300';
                     <label for="role" class="font-semibold">
                         Role*
                     </label>
-                    
+
                     <!-- <select @focus="checkError" @keyup="checkError" class="pl-5 text-sm py-3 bg-transparent rounded border text-grey" v-model="newTalent.Role" name="role" id="role">
                         <option value="">Select option</option>
                         <option value="male">Male</option>
@@ -670,7 +670,7 @@ const disabledView:any = 'bg-gray-300';
                     <label for="gender" class="font-semibold">
                         gender*
                     </label>
-                    
+
                     <select @focus="checkError" @keyup="checkError" class="pl-5 text-sm py-3 bg-transparent rounded border text-grey" v-model="newTalent.gender" name="gender" id="gender">
                         <option value="">Select option</option>
                         <option value="male">Male</option>

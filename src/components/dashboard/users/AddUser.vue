@@ -297,7 +297,7 @@ const addUser:any = async () => {
     console.log(`I am here sha`)
     await store.dispatch(actionTypes.AddNewUser, newData)
     console.log(`I am now here sha`)
-    const result = await store.getters.getUsers
+    const result:any = await store.getters.getUsers
     console.log(`I then came here sha`)
     store.commit(mutationTypes.SetNewUser, {})
     console.log(`So I am now here sha`)

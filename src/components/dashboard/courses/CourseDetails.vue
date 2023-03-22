@@ -115,7 +115,7 @@ const course:any = computed(() => {
                 <!-- {{ category }} -->
                 <!-- {{ courseDetails.categories }}
                 {{ courseDetails.categoryNames }} -->
-                {{ courseDetails.categoryNames.map((e) => e).join(', ') }}
+                <!-- {{ courseDetails.categoryNames.map((e) => e).join(', ') }} -->
                 <!-- <multiselect v-model="courseDetails.categories" mode="tags" :close-on-select="false" valueProp="id" :options="categories" track-by="name" label="name" class="multiselect-blue" /> -->
             </div>
         </div>

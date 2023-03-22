@@ -10,6 +10,7 @@ import contact from './module/contact'
 import ipos from './module/ipos'
 import dashboard from './module/dashboard'
 import users from './module/users'
+import payment from './module/payment'
 
 const store = createStore({
     modules: {
@@ -24,6 +25,7 @@ const store = createStore({
         ipos,
         dashboard,
         users,
+        payment,
     }
 })
 

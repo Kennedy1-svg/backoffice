@@ -196,7 +196,7 @@ export default {
         async [actionTypes.FetchProject] ({ commit }: any, data: any = `${api_url}api/project/get-projects/{page}/{limit}`) {
           const token:any = localStorage.getItem('token')
         //   console.log('token here', token)
-          const project = await fetchData(data, token)
+          const project:any = await fetchData(data, token)
         //   console.log('data', data)
         //   console.log('Iprojects', projects.payload)
         //   console.log('Iprojects', projects.value)
@@ -205,8 +205,8 @@ export default {
         //   console.log('Iprojects', projects.value)
           if (project.payload) {
             await commit(mutationTypes.SetProject, project)
-          // } else if (project.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (project.response.status === 401) {
+            router.push({ name: 'Login' });
           }
           // commit(mutationTypes.SetProject, project)
           // commit(mutationTypes.SetTotalProjectCount, project.totalCount)
@@ -214,7 +214,7 @@ export default {
         async [actionTypes.FetchOutsourcing] ({ commit }: any, data: any = `${api_url}api/outsourcing/get/{page}/{limit}`) {
           const token:any = localStorage.getItem('token')
         //   console.log('token here', token)
-          const outsourcing = await fetchData(data, token)
+          const outsourcing:any = await fetchData(data, token)
         //   console.log('data', data)
         //   console.log('Ioutsourcings', outsourcings.payload)
         //   console.log('Ioutsourcings', outsourcings.value)
@@ -223,8 +223,8 @@ export default {
         //   console.log('Ioutsourcings', outsourcings.value)
           if (outsourcing.payload) {
             await commit(mutationTypes.SetOutsourcing, outsourcing)
-          // } else if (outsourcing.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (outsourcing.response.status === 401) {
+            router.push({ name: 'Login' });
           }
           // commit(mutationTypes.SetProject, project)
           // commit(mutationTypes.SetTotalProjectCount, project.totalCount)
@@ -232,7 +232,7 @@ export default {
         async [actionTypes.FetchConsultancy] ({ commit }: any, data: any = `${api_url}api/consultancy/get-consultancy/{page}/{limit}`) {
           const token:any = localStorage.getItem('token')
         //   console.log('token here', token)
-          const consultancy = await fetchData(data, token)
+          const consultancy:any = await fetchData(data, token)
         //   console.log('data', data)
         //   console.log('Iconsultancys', consultancys.payload)
         //   console.log('Iconsultancys', consultancys.value)
@@ -241,8 +241,8 @@ export default {
         //   console.log('Iconsultancys', consultancys.value)
           if (consultancy.payload) {
             await commit(mutationTypes.SetConsultancy, consultancy)
-          // } else if (consultancy.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (consultancy.response.status === 401) {
+            router.push({ name: 'Login' });
           }
           // commit(mutationTypes.SetProject, project)
           // commit(mutationTypes.SetTotalProjectCount, project.totalCount)
@@ -250,17 +250,18 @@ export default {
         async [actionTypes.FetchJobDetails] ({ commit }: any, data: any) {
           const token:any = localStorage.getItem('token')
         //   console.log('token here', token)
-          const jobdetail = await fetchData(data, token)
+          const jobdetail:any = await fetchData(data, token)
         //   console.log('data', data)
-        //   console.log('Ijobdetails', jobdetails.payload)
+          console.log('Ijobdetails', jobdetail.payload)
+          console.log('Ijobdetails normal', jobdetail)
         //   console.log('Ijobdetails', jobdetails.value)
         //   console.log('Ijobdetails', JSON.parse(JSON.stringify(jobdetails)))
         //   console.log('Ijobdetails', JSON.parse(JSON.stringify(jobdetails.value)))
         //   console.log('Ijobdetails', jobdetails.value)
           if (jobdetail.payload) {
             await commit(mutationTypes.SetJobDetail, jobdetail)
-          // } else if (jobdetail.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (jobdetail.response.status === 401) {
+            router.push({ name: 'Login' });
           }
           // commit(mutationTypes.SetProject, project)
           // commit(mutationTypes.SetTotalProjectCount, project.totalCount)
@@ -268,7 +269,7 @@ export default {
         async [actionTypes.FetchOutsourcingTalents] ({ commit }: any, data: any) {
           const token:any = localStorage.getItem('token')
         //   console.log('token here', token)
-          const talents = await fetchData(data, token)
+          const talents:any = await fetchData(data, token)
         //   console.log('data', data)
           console.log('Italentss', talents.payload)
           // console.log('Italentss', talents.value)
@@ -277,8 +278,8 @@ export default {
         //   console.log('Italentss', talentss.value)
           if (talents.payload) {
             await commit(mutationTypes.SetOutsourcingTalent, talents.payload.jobDetails)
-          // } else if (talents.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (talents.response.status === 401) {
+            router.push({ name: 'Login' });
           }
           // commit(mutationTypes.SetProject, project)
           // commit(mutationTypes.SetTotalProjectCount, project.totalCount)
@@ -294,14 +295,14 @@ export default {
         async [actionTypes.EditOutsourcing] ({ commit, dispatch }: any, data: any) {
           const token:any = localStorage.getItem('token')
           console.log('token here')
-          const outsourcing = await editData(data.url, data.data, token)
+          const outsourcing:any = await editData(data.url, data.data, token)
           if (outsourcing.payload) {
             // commit(mutationTypes.SetNewProjectCategory, outsourcing.payload)
             await commit(mutationTypes.SetProjectAlertText, 'Outsourcing updated successfully')
             await commit(mutationTypes.SetProjectAlertStatus, true)
             await dispatch(actionTypes.FetchOutsourcing)
-          // } else if (outsourcing.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (outsourcing.response.status === 401) {
+            router.push({ name: 'Login' });
           } else if (outsourcing.message.includes('400')) {
             await commit(mutationTypes.SetProjectAlertText, 'Invalid Input!')
             await commit(mutationTypes.SetProjectAlertStatus, true)
@@ -331,14 +332,14 @@ export default {
           // const newData = [...outsourcingTalent, data]
           // console.log('new added outsourcing talent data', newData)
           // await commit(mutationTypes.SetOutsourcingTalent, newData)
-          const addOutsourcing = await addData(data.url, data.data, token)
+          const addOutsourcing:any = await addData(data.url, data.data, token)
           if (!addOutsourcing.hasErrors) {
             // commit(mutationTypes.SetNewCourseCategory, course_applicant.payload)
             await commit(mutationTypes.SetProjectAlertText, 'Outsourcing added successfully')
             await commit(mutationTypes.SetProjectAlertStatus, true)
             await dispatch(actionTypes.FetchOutsourcing)
-          // } else if (addOutsourcing.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (addOutsourcing.response.status === 401) {
+            router.push({ name: 'Login' });
           } else if (addOutsourcing.message.includes('400')) {
             await commit(mutationTypes.SetProjectAlertText, 'Invalid Input!')
             await commit(mutationTypes.SetProjectAlertStatus, true)
@@ -356,7 +357,7 @@ export default {
           const outsourcingTalent:any = await JSON.parse(JSON.stringify(state.outsourcingTalent))
           console.log('outsourcing talent here', outsourcingTalent)
           console.log('data', data)
-          const itemIndex = await outsourcingTalent.findIndex((item:any) => outsourcingTalent.indexOf(item) === data)
+          const itemIndex:any = await outsourcingTalent.findIndex((item:any) => outsourcingTalent.indexOf(item) === data)
           console.log('item index', itemIndex)
           outsourcingTalent.splice(itemIndex, 1)
           console.log('new daleted outsourcing talent data', outsourcingTalent)
@@ -366,14 +367,14 @@ export default {
           const token:any = localStorage.getItem('token')
             console.log('token here', token)
             console.log('data is', data)
-          const addToProject = await addData(data.url, data.data, token)
+          const addToProject:any = await addData(data.url, data.data, token)
           console.log('addToProject', addToProject)
           if (addToProject.payload) {
             commit(mutationTypes.SetProjectAlertText, 'Student added to project successfully')
             commit(mutationTypes.SetProjectAlertStatus, true)
             dispatch(actionTypes.FetchProject)
-          // } else if (addToProject.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (addToProject.response.status === 401) {
+            router.push({ name: 'Login' });
           } else if (addToProject.message.includes('400')) {
             commit(mutationTypes.SetProjectAlertText, 'Student already added to project')
             commit(mutationTypes.SetProjectAlertStatus, true)
@@ -395,7 +396,7 @@ export default {
         async [actionTypes.FetchStudentsInProject] ({ commit }: any, data: any) {
           const token:any = localStorage.getItem('token')
         //   console.log('token here')
-          const studentsinproject = await fetchData(data, token)
+          const studentsinproject:any = await fetchData(data, token)
         //   console.log('data', data)
           console.log('Iprojects', studentsinproject.payload)
         //   console.log('Iprojects', projects.value)
@@ -409,7 +410,7 @@ export default {
           const token:any = localStorage.getItem('token')
           console.log('token here')
           console.log('all data is', data.url, data.data)
-          const newproject = await addData(data.url, data.data, token)
+          const newproject:any = await addData(data.url, data.data, token)
           if (newproject.payload) {
             await commit(mutationTypes.SetProjectAlertText, 'Project added successfully')
             await commit(mutationTypes.SetProjectAlertStatus, true)
@@ -417,8 +418,8 @@ export default {
           } else if (newproject.message.includes('400')) {
             await commit(mutationTypes.SetProjectAlertText, 'Invalid Input!')
             await commit(mutationTypes.SetProjectAlertStatus, true)
-          // } else if (newproject.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (newproject.response.status === 401) {
+            router.push({ name: 'Login' });
           } else {
             await commit(mutationTypes.SetProjectAlertText, 'Houston, we have a problem!')
             await commit(mutationTypes.SetProjectAlertStatus, true)
@@ -432,14 +433,14 @@ export default {
         async [actionTypes.EditProject] ({ commit, dispatch }: any, data: any) {
           const token:any = localStorage.getItem('token')
           console.log('token here')
-          const project = await editData(data.url, data.data, token)
+          const project:any = await editData(data.url, data.data, token)
           if (!project.hasErrors) {
             // commit(mutationTypes.SetNewProjectCategory, project.payload)
             await commit(mutationTypes.SetProjectAlertText, 'Project updated successfully')
             await commit(mutationTypes.SetProjectAlertStatus, true)
             await dispatch(actionTypes.FetchProject)
-          // } else if (project.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (project.response.status === 401) {
+            router.push({ name: 'Login' });
           } else if (project.message.includes('400')) {
             await commit(mutationTypes.SetProjectAlertText, 'Invalid Input!')
             await commit(mutationTypes.SetProjectAlertStatus, true)
@@ -457,14 +458,14 @@ export default {
           const token:any = localStorage.getItem('token')
           console.log('token here')
           console.log('all data is', data)
-          const newproject = await removeData(data, token)
+          const newproject:any = await removeData(data, token)
           console.log('newproject', newproject)
           if (!newproject.hasErrors) {
             await commit(mutationTypes.SetProjectAlertText, 'Project removed successfully')
             await commit(mutationTypes.SetProjectAlertStatus, true)
             await dispatch(actionTypes.FetchProject)
-          // } else if (newproject.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (newproject.response.status === 401) {
+            router.push({ name: 'Login' });
           } else if (newproject.message.includes('400')) {
             await commit(mutationTypes.SetProjectAlertText, 'Invalid Input!')
             await commit(mutationTypes.SetProjectAlertStatus, true)
@@ -482,14 +483,14 @@ export default {
           const token:any = localStorage.getItem('token')
           console.log('token here')
           console.log('all data is', data)
-          const newproject = await removeData(data, token)
+          const newproject:any = await removeData(data, token)
           console.log('newproject', newproject)
           if (!newproject.hasErrors) {
             await commit(mutationTypes.SetProjectAlertText, 'Consultancy removed successfully')
             await commit(mutationTypes.SetProjectAlertStatus, true)
             await dispatch(actionTypes.FetchProject)
-          // } else if (newproject.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (newproject.response.status === 401) {
+            router.push({ name: 'Login' });
           } else if (newproject.message.includes('400')) {
             await commit(mutationTypes.SetProjectAlertText, 'Invalid Input!')
             await commit(mutationTypes.SetProjectAlertStatus, true)
@@ -507,14 +508,14 @@ export default {
           const token:any = localStorage.getItem('token')
           console.log('token here')
           console.log('all data is', data)
-          const outsourcing = await removeData(data, token)
+          const outsourcing:any = await removeData(data, token)
           console.log('outsourcing', outsourcing)
           if (!outsourcing.hasErrors) {
             await commit(mutationTypes.SetProjectAlertText, 'Outsourcing removed successfully')
             await commit(mutationTypes.SetProjectAlertStatus, true)
             await dispatch(actionTypes.FetchOutsourcing)
-          // } else if (outsourcing.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (outsourcing.response.status === 401) {
+            router.push({ name: 'Login' });
           } else if (outsourcing.message.includes('400')) {
             await commit(mutationTypes.SetProjectAlertText, 'Invalid Input!')
             await commit(mutationTypes.SetProjectAlertStatus, true)
@@ -533,7 +534,7 @@ export default {
           const token:any = localStorage.getItem('token')
           console.log('token here')
           console.log('all data is', data)
-          const newproject = await addData(data.url, data.data, token)
+          const newproject:any = await addData(data.url, data.data, token)
           console.log('newproject', newproject)
           if (!newproject.hasErrors) {
             await commit(mutationTypes.SetProjectAlertText, 'Student removed successfully')
@@ -556,50 +557,50 @@ export default {
           const token:any = localStorage.getItem('token')
           console.log('token here')
           console.log('all data is', data)
-          const project = await fetchData(data, token)
+          const project:any = await fetchData(data, token)
           console.log('project', project)
           if (project.payload) {
             commit(mutationTypes.SetEditProject, project.payload)
-          // } else if (project.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (project.response.status === 401) {
+            router.push({ name: 'Login' });
           }
         },
         async [actionTypes.FetchEditOutsourcing] ({ commit }: any, data: any) {
           const token:any = localStorage.getItem('token')
           console.log('token here')
           console.log('all data is', data)
-          const outsourcing = await fetchData(data, token)
+          const outsourcing:any = await fetchData(data, token)
           console.log('outsourcing', outsourcing)
           if (outsourcing.payload) {
             commit(mutationTypes.SetEditOutsourcing, outsourcing.payload)
-          // } else if (outsourcing.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (outsourcing.response.status === 401) {
+            router.push({ name: 'Login' });
           }
         },
         async [actionTypes.FetchEditConsultancy] ({ commit }: any, data: any) {
           const token:any = localStorage.getItem('token')
           console.log('token here')
           console.log('all data is', data)
-          const consultancy = await fetchData(data, token)
+          const consultancy:any = await fetchData(data, token)
           console.log('consultancy', consultancy)
           if (consultancy.payload) {
             commit(mutationTypes.SetEditConsultancy, consultancy.payload)
-          // } else if (consultancy.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (consultancy.response.status === 401) {
+            router.push({ name: 'Login' });
           }
         },
         async [actionTypes.UpdateProjectStatus] ({ commit, dispatch }: any, data: any) {
           const token:any = localStorage.getItem('token')
           console.log('token in update')
           console.log('update data is', data)
-          const UpdateProjectStatus = await addEmptyData(data, token)
+          const UpdateProjectStatus:any = await addEmptyData(data, token)
           console.log('UpdateProjectStatus', UpdateProjectStatus)
           if (UpdateProjectStatus.payload) {
             await commit(mutationTypes.SetProjectAlertText, 'Project status updated successfully')
             await commit(mutationTypes.SetProjectAlertStatus, true)
             await dispatch(actionTypes.FetchConsultancy)
-          // } else if (UpdateProjectStatus.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (UpdateProjectStatus.response.status === 401) {
+            router.push({ name: 'Login' });
           } else if (UpdateProjectStatus.message.includes('400')) {
             await commit(mutationTypes.SetProjectAlertText, 'Bad request received')
             await commit(mutationTypes.SetProjectAlertStatus, true)
@@ -620,14 +621,14 @@ export default {
           const token:any = localStorage.getItem('token')
           console.log('token in update', token)
           console.log('update data is', data)
-          const UpdateOutsourcingStatus = await addEmptyData(data, token)
+          const UpdateOutsourcingStatus:any = await addEmptyData(data, token)
           console.log('UpdateOutsourcingStatus', UpdateOutsourcingStatus)
           if (UpdateOutsourcingStatus.payload) {
             await commit(mutationTypes.SetProjectAlertText, 'Outsourcing status updated successfully')
             await commit(mutationTypes.SetProjectAlertStatus, true)
             await dispatch(actionTypes.FetchOutsourcing)
-          // } else if (UpdateOutsourcingStatus.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (UpdateOutsourcingStatus.response.status === 401) {
+            router.push({ name: 'Login' });
           } else if (UpdateOutsourcingStatus.message.includes('400')) {
             await commit(mutationTypes.SetProjectAlertText, 'Bad request received')
             await commit(mutationTypes.SetProjectAlertStatus, true)
@@ -648,14 +649,14 @@ export default {
           const token:any = localStorage.getItem('token')
           console.log('token in update')
           console.log('update data is', data)
-          const UpdateConsultancyStatus = await addEmptyData(data, token)
+          const UpdateConsultancyStatus:any = await addEmptyData(data, token)
           console.log('UpdateConsultancyStatus', UpdateConsultancyStatus)
           if (UpdateConsultancyStatus.payload) {
             await commit(mutationTypes.SetProjectAlertText, 'Consultancy status updated successfully')
             await commit(mutationTypes.SetProjectAlertStatus, true)
             await dispatch(actionTypes.FetchConsultancy)
-          // } else if (UpdateConsultancyStatus.response.status === 401) {
-          //   router.push({ name: 'Login' });
+          } else if (UpdateConsultancyStatus.response.status === 401) {
+            router.push({ name: 'Login' });
           } else if (UpdateConsultancyStatus.message.includes('400')) {
             await commit(mutationTypes.SetProjectAlertText, 'Bad request received')
             await commit(mutationTypes.SetProjectAlertStatus, true)

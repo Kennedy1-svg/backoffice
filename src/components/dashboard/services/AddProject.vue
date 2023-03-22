@@ -233,7 +233,7 @@ const addproject:any = async () => {
     await store.dispatch(projectActionTypes.AddProject, newData)
     await store.dispatch(projectActionTypes.FetchProject)
     store.commit(projectMutationTypes.SetNewProject, {})
-    const result = await store.getters.getProject
+    const result:any = await store.getters.getProject
     closeModal()
 }
 

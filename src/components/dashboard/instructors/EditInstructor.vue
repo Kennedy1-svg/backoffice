@@ -135,7 +135,7 @@ const deselect:any = async () => {
     console.log('on deselect')
     // filterClicked.value = false;
     // const batchrequest:any = `${api_url}api/batch/get-batches`;
-    // await store.dispatch(batchActionTypes.FetchInstructor)  
+    // await store.dispatch(batchActionTypes.FetchInstructor)
 }
 
 const pdfSrc = ref('https://walure.blob.core.windows.net/assets/blobs/instructor/368d52792a9f4333950569774210a25f.pdf')
@@ -185,7 +185,7 @@ const checkError:any = () => {
     } else {
         errors.firstName = false;
     }
-    
+
     if (!newInstructor.value.lastName) {
         errors.lastName = true;
         errors.lastNameText = 'Last name is required'
@@ -361,7 +361,7 @@ const checkError:any = () => {
     } else {
         isError.value = false;
         isDisabled.value = false;
-    }   
+    }
 }
 
 const removeImage:any = async () => {
@@ -527,7 +527,7 @@ const editInstructor:any = async () => {
     // formData.append('experienceLevel', newInstructor.value.experienceLevel)
 
     // console.log('formData', JSON.parse(JSON.stringify(formData)))
-    
+
     // Display the values
 // for (var value of formData.entries()) {
 //    console.log(value);
@@ -547,7 +547,7 @@ const editInstructor:any = async () => {
     }
     console.log('newData', newData)
     await store.dispatch(actionTypes.EditInstructor, newData)
-    const result = await store.dispatch(actionTypes.FetchInstructors)
+    const result:any = await store.dispatch(actionTypes.FetchInstructors)
     closeModal()
     store.commit(mutationTypes.SetEditInstructor, {})
     // formEl.reset()
@@ -603,14 +603,14 @@ const disabledView:any = 'bg-gray-300';
             <p class="text-2xl">Edit Instructor</p>
             <SvgIcons @click="closeModal" name="cancel" class="cursor-pointer" />
         </div>
-        
+
         <div :class="[showResume ? '' : 'hidden']" class="close-resume flex items-center justify-nd mb-3">
             <p @click="showResume = !showResume" class="text-xl">Close File </p>
             <SvgIcons @click="showResume = !showResume" name="cancel" class="cursor-pointer" />
         </div>
         <!-- <WebViewer :class="[showResume ? '' : 'hidden']" class="absolute z-20 w-full" :initialDoc="newInstructor.Resume" />    -->
 
-        <VuePdf v-for="page in numOfPages" :key="page" :src="pdfSource" :page="page" />     
+        <VuePdf v-for="page in numOfPages" :key="page" :src="pdfSource" :page="page" />
 
         <form id="formElem" ref="formEl" class="text-sm grid">
             <!-- {{ newInstructor }} -->
@@ -621,7 +621,7 @@ const disabledView:any = 'bg-gray-300';
                 <div class="relative mb-8">
                     <div v-if="!isActive">
                         <SvgIcons v-if="!isActive" :class="[errors.image ? 'border rounded-full text-red border-red' : '']" class="text-gray-300" name="pic-avatar" />
-                        <span class="absolute cursor-pointer left-3/5 bottom-0 bg-black rounded-full p-2">                   
+                        <span class="absolute cursor-pointer left-3/5 bottom-0 bg-black rounded-full p-2">
                             <input type="file" name="image" @change="onChange" class="opacity-0 absolute" accept=".png, .jpg, .jpeg" />
                             <SvgIcons class="text-white" name="camera" />
                         </span>
@@ -696,7 +696,7 @@ const disabledView:any = 'bg-gray-300';
                     <label for="gender" class="font-semibold">
                         Gender*
                     </label>
-                       
+
                     <multiselect v-model="newInstructor.gender" @clear="deselect" @select="cancan" valueProp="value" :options="genderoptions" track-by="label" label="label" placeholder="Select gender" :searchable="true" class="multiselect-blue" />
                     <p class="text-[10px] -mt-2 text-red">
                         {{ errors.gender ? errors.genderText : '' }}
@@ -744,7 +744,7 @@ const disabledView:any = 'bg-gray-300';
                     <label for="gender" class="font-semibold">
                         gender*
                     </label>
-                    
+
                     <select @focus="checkError" @keyup="checkError" class="pl-5 text-sm py-3 bg-transparent rounded border text-grey" v-model="newInstructor.gender" name="gender" id="gender">
                         <option value="">Select option</option>
                         <option value="male">Male</option>

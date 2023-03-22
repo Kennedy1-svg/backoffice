@@ -56,7 +56,7 @@ const checkError:any = () => {
         errors.name = false;
         errors.nameText = ''
     }
-    
+
     if (!newBatch.value.trainingType && newBatch.value.trainingType != '0') {
         errors.trainingType = true;
         errors.trainingTypeText = 'Training Type is required'
@@ -132,7 +132,7 @@ const checkError:any = () => {
     } else {
         isError.value = false;
         isDisabled.value = false;
-    }   
+    }
 }
 
 let isChecked:any = ref(false);
@@ -225,7 +225,7 @@ const addbatch:any = async () => {
         instructors: newBatch.value.instructors,
         courseId: newBatch.value.courseId,
     }
-    
+
     // formData.append('title', newBatch.value.title);
     // formData.append('trainingType', newBatch.value.trainingType);
     // formData.append('batchCapacity', newBatch.value.batchCapacity);
@@ -241,7 +241,7 @@ const addbatch:any = async () => {
     console.log('newData', newData)
     await store.dispatch(batchActionTypes.AddBatch, newData)
     await store.dispatch(batchActionTypes.FetchBatch)
-    const result = await store.getters.getBatch
+    const result:any = await store.getters.getBatch
     closeModal()
     store.commit(batchMutationTypes.SetNewBatch, {})
 }
@@ -267,7 +267,7 @@ const editbatch:any = async () => {
         instructors: JSON.parse(JSON.stringify(newBatch.value.instructors)),
         courseId: newBatch.value.courseId,
     }
-    
+
     // formData.append('title', newBatch.value.title);
     // formData.append('id', newBatch.value.id);
     // formData.append('trainingType', newBatch.value.trainingType);
@@ -284,7 +284,7 @@ const editbatch:any = async () => {
     console.log('newData', newData)
     await store.dispatch(batchActionTypes.EditBatch, newData)
     await store.dispatch(batchActionTypes.FetchBatch)
-    const result = await store.getters.getBatch
+    const result:any = await store.getters.getBatch
     closeModal()
     store.commit(batchMutationTypes.SetNewBatch, {})
 }
@@ -359,7 +359,7 @@ onMounted(async () => {
                     <p class="text-[10px] text-red">
                         {{ errors.course ? errors.courseText : '' }}
                     </p>
-                    
+
                     <!-- <select class="pl-5 text-sm py-3 bg-transparent rounded border text-grey" name="course" id="course">
                         <option value="">Select option</option>
                         <option  v-for="item in courses" :key="item.id"  :value=item.id>{{ item.title }}</option>
@@ -377,7 +377,7 @@ onMounted(async () => {
                     <p class="text-[10px] text-red">
                         {{ errors.trainingType ? errors.trainingTypeText : '' }}
                     </p>
-                    
+
                     <!-- <select class="pl-5 text-sm py-3 bg-transparent rounded border text-grey" name="trainingtype" id="trainingtype">
                         <option value="">Select option</option>
                         <option value="Online">Online</option>
@@ -394,7 +394,7 @@ onMounted(async () => {
                     </p>
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-8 mb-10">                
+            <div class="grid grid-cols-2 gap-8 mb-10">
                 <div class="grid gap-4" id="startdate">
                     <label for="startdate" class="font-semibold">
                         Start date*

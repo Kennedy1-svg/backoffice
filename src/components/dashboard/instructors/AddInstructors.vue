@@ -131,7 +131,7 @@ const deselect:any = async () => {
     console.log('on deselect')
     // filterClicked.value = false;
     // const batchrequest:any = `${api_url}api/batch/get-batches`;
-    // await store.dispatch(batchActionTypes.FetchInstructor)  
+    // await store.dispatch(batchActionTypes.FetchInstructor)
 }
 
 let pdfSource:any = ref('');
@@ -167,7 +167,7 @@ const checkError:any = () => {
     } else {
         errors.FirstName = false;
     }
-    
+
     if (!newInstructor.value.LastName) {
         errors.LastName = true;
         errors.LastNameText = 'Last name is required'
@@ -343,7 +343,7 @@ const checkError:any = () => {
     } else {
         isError.value = false;
         isDisabled.value = false;
-    }   
+    }
 }
 
 // const viewer:any = ref(null)
@@ -454,7 +454,7 @@ const addInstructor:any = async () => {
     formData.append('ExperienceLevel', newInstructor.value.ExperienceLevel)
 
     // console.log('formData', JSON.parse(JSON.stringify(formData)))
-    
+
     // Display the values
 // for (var value of formData.entries()) {
 //    console.log(value);
@@ -474,7 +474,7 @@ const addInstructor:any = async () => {
     }
     console.log('newData', newData)
     await store.dispatch(actionTypes.AddNewInstructor, newData)
-    const result = await store.getters.getInstructor
+    const result:any = await store.getters.getInstructor
     store.commit(mutationTypes.SetNewInstructor, {})
     closeModal()
     // formEl.reset()
@@ -511,7 +511,7 @@ const disabledView:any = 'bg-gray-300';
             <p class="text-2xl">Add Instructor</p>
             <SvgIcons @click="closeModal" name="cancel" class="cursor-pointer" />
         </div>
-        
+
         <div :class="[showResume ? '' : 'hidden']" class="close-resume flex items-center justify-nd mb-3">
             <p @click="showResume = !showResume" class="text-xl">Close File </p>
             <SvgIcons @click="showResume = !showResume" name="cancel" class="cursor-pointer" />
@@ -529,7 +529,7 @@ const disabledView:any = 'bg-gray-300';
                 <div class="relative mb-8">
                     <div v-if="!isActive">
                         <SvgIcons v-if="!isActive" :class="[errors.image ? 'border rounded-full text-red border-red' : '']" class="text-gray-300" name="pic-avatar" />
-                        <span class="absolute cursor-pointer left-3/5 bottom-0 bg-black rounded-full p-2">                   
+                        <span class="absolute cursor-pointer left-3/5 bottom-0 bg-black rounded-full p-2">
                             <input type="file" name="image" @change="onChange" class="opacity-0 absolute" accept=".png, .jpg, .jpeg" />
                             <SvgIcons class="text-white" name="camera" />
                         </span>
@@ -603,7 +603,7 @@ const disabledView:any = 'bg-gray-300';
                     <label for="gender" class="font-semibold">
                         Gender*
                     </label>
-                       
+
                     <multiselect v-model="newInstructor.Gender" @clear="deselect" @select="cancan" valueProp="value" :options="genderoptions" track-by="label" label="label" placeholder="Select gender" :searchable="true" class="multiselect-blue" />
                     <p class="text-[10px] -mt-2 text-red">
                         {{ errors.gender ? errors.genderText : '' }}
@@ -651,7 +651,7 @@ const disabledView:any = 'bg-gray-300';
                     <label for="gender" class="font-semibold">
                         Gender*
                     </label>
-                    
+
                     <select @focus="checkError" @keyup="checkError" class="pl-5 text-sm py-3 bg-transparent rounded border text-grey" v-model="newInstructor.gender" name="gender" id="gender">
                         <option value="">Select option</option>
                         <option value="male">Male</option>

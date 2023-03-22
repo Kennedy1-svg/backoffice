@@ -118,14 +118,14 @@ export default {
       console.log('ipos', ipos)
       if (ipos.payload) {
         await commit(mutationTypes.SetIPOs, ipos)
-      // } else if (ipos.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (ipos.response.status === 401) {
+        router.push({ name: 'Login' });
       }
     },
     async [actionTypes.FetchEditIPO] ({ commit }: any, data: any) {
       const token:any = localStorage.getItem('token')
       console.log('token here')
-      const ipo = await fetchData(data, token)
+      const ipo:any = await fetchData(data, token)
       console.log('data tch', data)
       // console.log('Iipos', ipo.payload)
     //   console.log('Iipos', ipos.value)
@@ -134,21 +134,21 @@ export default {
     //   console.log('Iipos', ipos.value)
       if (ipo.payload) {
         await commit(mutationTypes.SetEditIPO, ipo.payload)
-      // } else if (ipo.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (ipo.response.status === 401) {
+        router.push({ name: 'Login' });
       }
       // await commit(mutationTypes.SetNewIPO, ipo.payload)
     },
     async [actionTypes.RemoveIPO] ({ commit, dispatch }: any, data: any) {
       const token:any = localStorage.getItem('token')
       console.log('token here')
-      const ipo = await removeData(data, token)
+      const ipo:any = await removeData(data, token)
       if (!ipo.hasErrors) {
         await commit(mutationTypes.SetIPOAlertText, 'IPO removed successfully')
         await commit(mutationTypes.SetIPOAlertStatus, true)
         await dispatch(actionTypes.FetchIPOs)
-      // } else if (ipo.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (ipo.response.status === 401) {
+        router.push({ name: 'Login' });
       } else if (ipo.message.includes('400')) {
         await commit(mutationTypes.SetIPOAlertText, 'Invalid Id!')
         await commit(mutationTypes.SetIPOAlertStatus, true)
@@ -168,14 +168,14 @@ export default {
       console.log('ipos', ipos)
       if (ipos.payload) {
         await commit(mutationTypes.SetIPODemos, ipos)
-      // } else if (ipos.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (ipos.response.status === 401) {
+        router.push({ name: 'Login' });
       }
     },
     async [actionTypes.FetchEditIPODemo] ({ commit }: any, data: any) {
       const token:any = localStorage.getItem('token')
       console.log('token here')
-      const ipo = await fetchData(data, token)
+      const ipo:any = await fetchData(data, token)
       console.log('data tch', data)
       // console.log('Iipos', ipo.payload)
     //   console.log('Iipos', ipos.value)
@@ -184,21 +184,21 @@ export default {
     //   console.log('Iipos', ipos.value)
       if (ipo.payload) {
         await commit(mutationTypes.SetEditIPODemo, ipo.payload)
-      // } else if (ipo.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (ipo.response.status === 401) {
+        router.push({ name: 'Login' });
       }
       // await commit(mutationTypes.SetNewIPODemo, ipo.payload)
     },
     async [actionTypes.RemoveIPODemo] ({ commit, dispatch }: any, data: any) {
       const token:any = localStorage.getItem('token')
       console.log('token here')
-      const ipo = await removeData(data, token)
+      const ipo:any = await removeData(data, token)
       if (!ipo.hasErrors) {
         await commit(mutationTypes.SetIPOAlertText, 'IPO removed successfully')
         await commit(mutationTypes.SetIPOAlertStatus, true)
         await dispatch(actionTypes.FetchIPOs)
-      // } else if (ipo.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (ipo.response.status === 401) {
+        router.push({ name: 'Login' });
       } else if (ipo.message.includes('400')) {
         await commit(mutationTypes.SetIPOAlertText, 'Invalid Id!')
         await commit(mutationTypes.SetIPOAlertStatus, true)
@@ -218,14 +218,14 @@ export default {
       console.log('ipos', ipos)
       if (ipos.payload) {
         await commit(mutationTypes.SetIPOQuotes, ipos)
-      // } else if (ipos.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (ipos.response.status === 401) {
+        router.push({ name: 'Login' });
       }
     },
     async [actionTypes.FetchEditIPOQuote] ({ commit }: any, data: any) {
       const token:any = localStorage.getItem('token')
       console.log('token here')
-      const ipo = await fetchData(data, token)
+      const ipo:any = await fetchData(data, token)
       console.log('data tch', data)
       // console.log('Iipos', ipo.payload)
     //   console.log('Iipos', ipos.value)
@@ -234,21 +234,21 @@ export default {
     //   console.log('Iipos', ipos.value)
       if (ipo.payload) {
         await commit(mutationTypes.SetEditIPOQuote, ipo.payload)
-      // } else if (ipo.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (ipo.response.status === 401) {
+        router.push({ name: 'Login' });
       }
       // await commit(mutationTypes.SetNewIPOQuote, ipo.payload)
     },
     async [actionTypes.RemoveIPOQuote] ({ commit, dispatch }: any, data: any) {
       const token:any = localStorage.getItem('token')
       console.log('token here')
-      const ipo = await removeData(data, token)
+      const ipo:any = await removeData(data, token)
       if (!ipo.hasErrors) {
         await commit(mutationTypes.SetIPOAlertText, 'IPO removed successfully')
         await commit(mutationTypes.SetIPOAlertStatus, true)
         await dispatch(actionTypes.FetchIPOs)
-      // } else if (ipo.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (ipo.response.status === 401) {
+        router.push({ name: 'Login' });
       } else if (ipo.message.includes('400')) {
         await commit(mutationTypes.SetIPOAlertText, 'Invalid Id!')
         await commit(mutationTypes.SetIPOAlertStatus, true)

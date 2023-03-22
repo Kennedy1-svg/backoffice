@@ -75,7 +75,7 @@ const checkError:any = () => {
     } else {
         isError.value = false;
         isDisabled.value = false;
-    }   
+    }
 }
 
 const emits = defineEmits(['close'])
@@ -107,7 +107,7 @@ const addSkill:any = async () => {
     }
     console.log('newData', newData)
     await store.dispatch(actionTypes.AddNewSkill, newData)
-    const result = await store.getters.getSkills
+    const result:any = await store.getters.getSkills
     closeModal()
 
 }
@@ -143,7 +143,7 @@ const editSkill:any = async () => {
     }
     console.log('newData', newData)
     await store.dispatch(actionTypes.UpdateSkill, newData)
-    const result = await store.getters.getSkills
+    const result:any = await store.getters.getSkills
     closeModal()
 
 }

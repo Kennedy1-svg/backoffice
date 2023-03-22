@@ -37,8 +37,8 @@ export default {
       console.log('stats', stats)
       if (stats.payload) {
         await commit(mutationTypes.SetStat, stats.payload)
-      // } else if (stats.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (stats.response.status === 401) {
+        router.push({ name: 'Login' });
       }
     },
     async [actionTypes.FetchActivity] ({ commit }: any, data: any = `${api_url}api/dashboard/activities`) {
@@ -48,8 +48,8 @@ export default {
       console.log('activities', activities)
       if (activities.payload) {
         await commit(mutationTypes.SetActivity, activities.payload)
-      // } else if (activities.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (activities.response.status === 401) {
+        router.push({ name: 'Login' });
       }
     },
   },

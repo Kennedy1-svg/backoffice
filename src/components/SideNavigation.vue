@@ -191,18 +191,30 @@ import SvgIcons from './SvgIcons.vue'
 					</a>
 				</li>
 				<li>
+					<a class="flex items-center justify-between hover:bg-primary-accent hover:text-primary lg:px-6 px-2" href="/dashboard/payments">
+						<div class="flex items-center gap-3 py-4">
+							<div>
+								<SvgIcons name="payment" /> <!-- enumeration icon -->
+							</div>
+							<p class="text-[15px]">
+								Payment
+							</p>
+						</div>
+					</a>
+				</li>
+				<!-- <li>
 					<div class="dropdown">
 						<button class="flex items-center justify-between hover:bg-primary-accent hover:text-primary lg:px-6 px-2 gap-3">
 							<div class="flex items-center gap-4 py-4">
 								<div>
-									<SvgIcons name="account-management" /> <!-- user icon -->
+									<SvgIcons name="account-management" />
 								</div>
 								<p class="text-left text-[15px]">
-									Account Management
+									Payment
 								</p>
 							</div>
 							<div class="flex justify-end">
-								<SvgIcons name="chevron-right" /> <!-- right icon -->
+								<SvgIcons name="payment" />
 							</div>
 						</button>
 						<div class="hidden dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2">
@@ -224,20 +236,20 @@ import SvgIcons from './SvgIcons.vue'
 							</div>
 						</div>
 					</div>
-				</li>
-				<li>
+				</li> -->
+				<!-- <li>
 					<div class="dropdown">
 						<button class="flex items-center justify-between hover:bg-primary-accent hover:text-primary lg:px-6 px-2 gap-3">
 							<div class="flex items-center gap-4 py-4">
 								<div>
-									<SvgIcons name="user-group" /> <!-- user icon -->
+									<SvgIcons name="user-group" />
 								</div>
 								<p class="text-left text-[15px]">
 									HR Department
 								</p>
 							</div>
 							<div class="flex justify-end">
-								<SvgIcons name="chevron-right" /> <!-- right icon -->
+								<SvgIcons name="chevron-right" />
 							</div>
 						</button>
 						<div class="hidden dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2">
@@ -268,7 +280,7 @@ import SvgIcons from './SvgIcons.vue'
 							</div>
 						</div>
 					</div>
-				</li>
+				</li> -->
 				<li>
 					<a class="flex items-center justify-between hover:bg-primary-accent hover:text-primary lg:px-6 px-2" href="/dashboard/contact-us">
 						<div class="flex items-center gap-3 py-4">

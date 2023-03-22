@@ -172,10 +172,10 @@ onMounted( async () => {
                           {{ instructor.phoneNumber }}
                       </td>
                       <td class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                         {{ instructor.status == 0 ? 'Pending' : instructor.status == 1 ? 'Approved' : 'Rejected' }}
+                         {{ instructor.statusInfo == 0 ? 'Pending' : instructor.statusInfo == 1 ? 'Approved' : 'Rejected' }}
                       </td>
                       <td class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          
+
                             <div class="relative inline-block dropdown">
                                 <button class="flex justify-around gap-8 items-center rounded" type="button" aria-haspopup="true" aria-expanded="true" aria-controls="headlessui-menu-items-117">
                                     <SvgIcons name="ellipsis" />
@@ -210,7 +210,7 @@ onMounted( async () => {
                                             <button
                                             type="button"
                                             @click="showUpdateStatus = !showUpdateStatus"
-                                            @click.prevent="setId(instructor.id)"    
+                                            @click.prevent="setId(instructor.id)"
                                             class="text-gray-600 cursor-pointer hover:text-primary flex items-center gap-2 w-full px-4 py-2 text-sm text-left"
                                             >
                                                 <SvgIcons name="update" />

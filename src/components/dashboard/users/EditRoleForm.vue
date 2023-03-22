@@ -100,7 +100,7 @@ const updateRole:any = async () => {
     }
     console.log('newData', newData)
     await store.dispatch(actionTypes.EditRole, newData)
-    const result = await store.getters.getRoles
+    const result:any = await store.getters.getRoles
     store.commit(mutationTypes.SetNewRole, newrole)
     closeModal()
 }

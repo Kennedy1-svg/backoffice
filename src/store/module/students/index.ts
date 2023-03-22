@@ -99,7 +99,7 @@ export default {
     async [actionTypes.FetchStudents] ({ commit }: any, data: any = `${api_url}api/student/get-students/{pageIndex}/{pageSize}`) {
       const token:any = localStorage.getItem('token')
       console.log('token here', token)
-      const students = await fetchData(data, token)
+      const students:any = await fetchData(data, token)
       console.log('data fe', data)
       console.log('Istudents', students)
       // console.log('Istudents', students.response.status)
@@ -109,14 +109,14 @@ export default {
       if (students.payload) {
         await commit(mutationTypes.SetStudent, students.payload)
         await commit(mutationTypes.SetTotalCount, students.totalCount)
-      // } else if (students.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (students.response.status === 401) {
+        router.push({ name: 'Login' });
       }
     },
     async [actionTypes.FetchEditStudent] ({ commit }: any, data: any) {
       const token:any = localStorage.getItem('token')
       console.log('token here')
-      const student = await fetchData(data, token)
+      const student:any = await fetchData(data, token)
       // console.log('data tch', data)
       // console.log('Istudents', student.payload)
     //   console.log('Istudents', students.value)
@@ -126,15 +126,15 @@ export default {
       if (student.payload) {
         await commit(mutationTypes.SetEditStudent, student.payload)
         await commit(mutationTypes.SetNewStudent, student.payload)
-      // } else if (student.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (student.response.status === 401) {
+        router.push({ name: 'Login' });
       }
       // commit(mutationTypes.SetTotalCount, students.totalCount)
     },
     async [actionTypes.FilterStudent] ({ commit }: any, data: any) {
       const token:any = localStorage.getItem('token')
       console.log('token here')
-      const student = await fetchData(data, token)
+      const student:any = await fetchData(data, token)
       console.log('data', data)
       console.log('Istudents', student.payload)
     //   console.log('Istudents', students.value)
@@ -143,15 +143,15 @@ export default {
     //   console.log('Istudents', students.value)
       if (student.payload) {
         commit(mutationTypes.SetStudent, student.payload)
-      // } else if (student.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (student.response.status === 401) {
+        router.push({ name: 'Login' });
       }
       // commit(mutationTypes.SetTotalCount, students.totalCount)
     },
     async [actionTypes.SearchStudent] ({ commit }: any, data: any) {
       const token:any = localStorage.getItem('token')
       console.log('token here')
-      const student = await fetchData(data, token)
+      const student:any = await fetchData(data, token)
       console.log('data', data)
       console.log('Istudents', student.payload)
     //   console.log('Istudents', students.value)
@@ -160,8 +160,8 @@ export default {
     //   console.log('Istudents', students.value)
       if (student.payload) {
         commit(mutationTypes.SetStudent, student.payload)
-      // } else if (student.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (student.response.status === 401) {
+        router.push({ name: 'Login' });
       }
       // commit(mutationTypes.SetTotalCount, students.totalCount)
     },
@@ -169,7 +169,7 @@ export default {
       const token:any = localStorage.getItem('token')
       console.log('token here')
       console.log('data is', data)
-      const student = await addDataFile(data.url, data.data, token)
+      const student:any = await addDataFile(data.url, data.data, token)
       if (student.payload) {
         await commit(mutationTypes.SetStudentAlertText, 'Student added successfully')
         await commit(mutationTypes.SetStudentAlertStatus, true)
@@ -177,8 +177,8 @@ export default {
       } else if (student.message.includes('400')) {
         await commit(mutationTypes.SetStudentAlertText, 'Invalid Input!')
         await commit(mutationTypes.SetStudentAlertStatus, true)
-      // } else if (student.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (student.response.status === 401) {
+        router.push({ name: 'Login' });
       } else {
         await commit(mutationTypes.SetStudentAlertText, 'Houston, we have a problem!')
         await commit(mutationTypes.SetStudentAlertStatus, true)
@@ -193,13 +193,13 @@ export default {
       const token:any = localStorage.getItem('token')
       console.log('token here')
       console.log('data is', data)
-      const student = await editData(data.url, data.data, token)
+      const student:any = await editData(data.url, data.data, token)
       if (student.payload) {
         await commit(mutationTypes.SetStudentAlertText, 'Student updated successfully')
         await commit(mutationTypes.SetStudentAlertStatus, true)
         await dispatch(actionTypes.FetchStudents)
-      // } else if (student.response.status === 401) {
-      //   router.push({ name: 'Login' });
+      } else if (student.response.status === 401) {
+        router.push({ name: 'Login' });
       } else if (student.message.includes('400')) {
         await commit(mutationTypes.SetStudentAlertText, 'Invalid Input!')
         await commit(mutationTypes.SetStudentAlertStatus, true)

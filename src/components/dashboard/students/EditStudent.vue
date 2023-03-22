@@ -87,7 +87,7 @@ const checkEditError:any = () => {
         errors.firstName = false;
         errors.firstNameText = ''
     }
-    
+
     if (!newStudent.value.lastName) {
         errors.lastName = true;
         errors.lastNameText = 'Last name is required'
@@ -190,7 +190,7 @@ const checkEditError:any = () => {
     } else {
         isError.value = false;
         isDisabled.value = false;
-    }   
+    }
 }
 
 const removeImage:any = async () => {
@@ -354,7 +354,7 @@ const editStudent:any = async () => {
     }
 
     // console.log('formData', JSON.parse(JSON.stringify(formData)))
-    
+
     // Display the values
 // for (var value of formData.entries()) {
 //    console.log(value);
@@ -374,7 +374,7 @@ const editStudent:any = async () => {
     }
     console.log('newData', newData)
     await store.dispatch(studentActionTypes.EditStudent, newData)
-    const result = await store.getters.getStudent
+    const result:any = await store.getters.getStudent
     closeModal()
     store.commit(studentMutationTypes.SetNewStudent, {})
     // formEl.reset()
@@ -437,7 +437,7 @@ const disabledView:any = 'bg-gray-300';
                 <div class="relative mb-8">
                     <!-- <div v-if="!isActive && props.name == 'Add'">
                         <SvgIcons v-if="!isActive" :class="[errors.image ? 'border rounded-full text-red border-red' : '']" class="text-gray-300" name="pic-avatar" />
-                        <span class="absolute cursor-pointer left-3/5 bottom-0 bg-black rounded-full p-2">                   
+                        <span class="absolute cursor-pointer left-3/5 bottom-0 bg-black rounded-full p-2">
                             <input type="file" name="imageFile" @change="onChange" class="opacity-0 absolute" accept=".png, .jpg, .jpeg" />
                             <SvgIcons class="text-white" name="camera" />
                         </span>
@@ -445,7 +445,7 @@ const disabledView:any = 'bg-gray-300';
                     <!-- {{ isImageRemoved }} -->
                     <div v-if="!isActive">
                         <SvgIcons v-if="!isActive" :class="[errors.image ? 'border rounded-full text-red border-red' : '']" class="text-gray-300" name="pic-avatar" />
-                        <span class="absolute cursor-pointer left-3/5 bottom-0 bg-black rounded-full p-2">                   
+                        <span class="absolute cursor-pointer left-3/5 bottom-0 bg-black rounded-full p-2">
                             <input type="file" name="imageFile" @change="onChange" class="opacity-0 absolute" accept=".png, .jpg, .jpeg" />
                             <SvgIcons class="text-white" name="camera" />
                         </span>
@@ -537,7 +537,7 @@ const disabledView:any = 'bg-gray-300';
                     <label for="gender" class="font-semibold">
                         Gender*
                     </label>
-                    
+
                     <select @focus="checkEditError" @keyup="checkEditError" class="pl-5 text-sm py-3 bg-transparent rounded border text-grey" v-model="newStudent.gender" name="gender" id="gender">
                         <option value="">Select option</option>
                         <option value="Male">Male</option>

@@ -88,7 +88,7 @@ const checkError:any = () => {
         errors.name = false;
         errors.nameText = ''
     }
-    
+
     if (!newCategory.value.description) {
         errors.description = true;
         errors.descriptionText = 'Description is required'
@@ -108,7 +108,7 @@ const checkError:any = () => {
     } else {
         isError.value = false;
         isDisabled.value = false;
-    }   
+    }
 }
 
 const test = () => {
@@ -179,7 +179,7 @@ const addCategory:any = async () => {
     // }
 
     // console.log('formData', JSON.parse(JSON.stringify(formData)))
-    
+
     // Display the values
 // for (var value of formData.entries()) {
 //    console.log(value);
@@ -199,7 +199,7 @@ const addCategory:any = async () => {
     }
     console.log('newData', newData)
     await store.dispatch(courseActionTypes.AddNewCourseCategory, newData)
-    const result = await store.getters.getCourseCategories
+    const result:any = await store.getters.getCourseCategories
     closeModal()
     store.commit(courseMutationTypes.SetNewCourseCategory, {})
     // formEl.reset()
@@ -231,7 +231,7 @@ const editCategory:any = async () => {
     }
 
     // console.log('formData', JSON.parse(JSON.stringify(formData)))
-    
+
     // Display the values
 // for (var value of formData.entries()) {
 //    console.log(value);
@@ -251,7 +251,7 @@ const editCategory:any = async () => {
     }
     console.log('newData', newData)
     await store.dispatch(courseActionTypes.EditCourseCategory, newData)
-    const result = await store.getters.getCourseCategories
+    const result:any = await store.getters.getCourseCategories
     closeModal()
     store.commit(courseMutationTypes.SetNewCourseCategory, {})
     // formEl.reset()

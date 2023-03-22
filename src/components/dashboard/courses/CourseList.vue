@@ -140,7 +140,7 @@ onMounted( async () => {
             <p class="text-xl font-medium text-primary">Total : {{ total_count }}</p>
         </div>
         <div class="table mb-28">
-            <!-- {{ courses }} -->
+            {{ courses }}
             <div class="block w-full overflow-x-scroll xl:overflow-hidden overflow-y-hidden rounded-lg">
                 <table class="overflow-x-scroll border items-center w-full">
                     <thead class="bg-table-head">
