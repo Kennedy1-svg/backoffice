@@ -20,7 +20,7 @@ const store = useStore();
 
 <template>
   <div class="main flex pt-[5px] pb-[90px] gap-5">
-      <div class="w-1/4">
+      <div class="w-3/4">
         <CompanyDetailCard />
       </div>
       <div class="tabs">

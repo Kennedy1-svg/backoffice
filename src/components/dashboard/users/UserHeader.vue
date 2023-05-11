@@ -74,12 +74,12 @@ onMounted( async() => {
 </script>
 
 <template>
-    <div class="main pt-[50px] grid gap-5 pb-[90px]">
-        <div class="top flex justify-between items-center">
+    <div class="main pt-[50px] grid gap-5 pb-[90px] overflow-hidden">
+        <div class="top md:flex justify-between items-center">
             <h1 class="font-semibold text-2xl">User Management</h1>
             <!-- {{ roles }} -->
             <button class="focus:outline-none flex items-center gap-3 text-sm">
-                <p class="text-grey font-semibold">Add User</p>
+                <p class="text-grey font-semibold my-2">Add User</p>
                 <!-- <Modal>
                     <template #button>
                         <span class="bg-blue p-1 flex justify-center text-white rounded-md"> -->
@@ -110,8 +110,8 @@ onMounted( async() => {
                 </div>
             </button>
         </div>
-        <div class="filter flex bg-white rounded-t-lg justify-between items-center px-11 py-5">
-            <div class="status w-1/3">
+        <div class="filter grid gap-y-2  md:flex bg-white rounded-t-lg justify-between items-center px-3 md:px-11 py-5">
+            <div class="status order-last md:w-1/3">
                 <!-- <Filter>
                     <template #info>
                         <span class="pl-5 pr-56">Status</span>

@@ -29,15 +29,15 @@ onMounted( async () => {
 </script>
 
 <template>
-    <div class="main grid bg-white">
+    <div class="main grid bg-white mx-5">
         <div class="title flex justify-between items-center p-7 px-10">
             <h1 class="text-4xl font-semibold text-black">
                 Job Details
             </h1>
         </div>
-        <!-- {{ jobDetails }} -->
+        {{ jobDetails.jobDetails }}
         <div class="details p-7 px-10 grid grid-cols-3 gap-5">
-            <JobDetailCard v-for="detail in jobDetails.jobDetails" :key="detail.id" :job="detail" class="shadow-md" />
+            <!-- <JobDetailCard v-for="detail in jobDetails" :key="detail.id" :job="detail" class="shadow-md"/> -->
         </div>
     </div>
 </template>

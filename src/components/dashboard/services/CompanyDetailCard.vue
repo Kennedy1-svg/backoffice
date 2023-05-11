@@ -88,7 +88,7 @@ onMounted( async() => {
 </script>
 
 <template>
-    <div class="main grid justify-items-enter item-center p-4 px-8 bg-white rounded">
+    <div class="main grid justify-items-enter item-center w-full bg-white rounded p-5">
         <!-- {{ jobDetail }} -->
         <!-- <div class="flex">
             <span class="border-2 border-dashed p-1 rounded-full  justify-center items-center">
@@ -97,12 +97,13 @@ onMounted( async() => {
             </span>
         </div> -->
         <!-- <img :src="jobDetail.thumbnail" alt="course thumbnail"> -->
-        <div class="pb-10">
+        <div class="pb-10 pl-3">
             <p class="font-semibold py-1">Company</p>
+            <!-- {{ jobDetail }} -->
             <!-- <p class="text-3xl font-semibold py-1 text-grey">{{ startCase(toLower(jobDetail.companyTypeName)) }}</p> -->
             <p class="text-3xl font-semibold py-1 text-grey">{{ jobDetail.companyName }}</p>
         </div>
-        <div class="bottom">
+        <div class="bottom p-3">
             <!-- {{ jobDetails }} -->
             <!-- {{ jobDetails.title }} -->
             <div class="flex py-3 font-medium justify-between items-center">
@@ -111,7 +112,7 @@ onMounted( async() => {
             </div>
             <div class="flex py-3 font-medium justify-between items-center">
                 <p>Contact Person</p>
-                <p class="text-grey">{{ jobDetail.contactName }}</p>
+                <p class="text-grey">{{ jobDetail.contactPerson }}</p>
             </div>
             <div class="flex py-3 font-medium justify-between items-center">
                 <p>Mobile</p>

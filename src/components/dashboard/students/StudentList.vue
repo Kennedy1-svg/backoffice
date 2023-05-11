@@ -126,7 +126,7 @@ onMounted(async() => {
 </script>
 
 <template>
-    <div class="main grid">
+    <div class="main grid overflow-scroll">
         <div class="title flex justify-between pr-32 xl:pr-0 items-center mb-10">
             <h1 class="text-2xl font-semibold text-black">Student List</h1>
             <p class="text-xl font-medium text-primary">Total : {{ totalCount }}</p>

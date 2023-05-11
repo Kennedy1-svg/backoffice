@@ -36,10 +36,11 @@ onMounted( async () => {
 </script>
 
 <template>
-    <div class="main grid py-8">
-        <h1 class="text-xl pt-5 font-semibold">Dashboard</h1>
+     <div class="main grid lg:py-8 py-2">
+        <h1 class="text-xl pt-5 font-semibold text-center lg:text-left">Dashboard</h1>
             <!-- {{ stats }} -->
-        <div class="grid grid-cols-3 py-7 gap-8">
+        <div class="grid lg:grid-cols-3 py-7 gap-8 grid-cols-1">
+
             <Cards>
                 <template #chart>
                     <circleprogress

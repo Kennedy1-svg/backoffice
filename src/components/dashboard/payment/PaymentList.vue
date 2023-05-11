@@ -114,15 +114,15 @@ onMounted( async () => {
 </script>
 
 <template>
-    <div class="main grid">
+    <div class="main grid overflow-scroll">
         <div class="title flex justify-end items-center mb-10">
             <!-- <h1 class="text-2xl font-semibold text-black">Payment List</h1> -->
             <p class="text-xl font-medium text-primary">Total : {{ total_count }}</p>
         </div>
         <div class="table">
             <!-- {{ payments }} -->
-            <div class="block w-full overflow-x-scroll xl:overflow-hidden overflow-y-hidden rounded-lg">
-                <table class="overflow-x-scroll border items-center w-full">
+            <div class="block w-full border overflow-x-scroll xl:overflow-hidden overflow-y-hidden rounded-lg">
+                <table class="overflow-auto border items-center w-full">
                     <thead class="bg-table-head">
                     <tr class="justify-items-center">
                         <th class="pl-6 pr-3 align-middle py-3 text-xs border-l-0 border-r-0 whitespace-nowrap font-medium text-gray-500 text-left">

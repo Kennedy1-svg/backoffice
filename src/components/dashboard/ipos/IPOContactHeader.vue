@@ -51,7 +51,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="main pt-[50px] grid gap-5 pb-[90px]">
+    <div class="main pt-[50px] grid gap-5 pb-[90px] overflow-hidden">
         <div class="top flex justify-between items-center">
             <h1 class="font-semibold text-2xl">Contact Us</h1>
             <!-- <div class="buttons flex gap-10">

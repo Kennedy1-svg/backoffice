@@ -55,6 +55,12 @@ const roleoptions:any = computed(() => {
     return store.getters.getRole.value.payload;
 })
 
+const departmentoptions:any = computed(() => {
+    return store.getters.getDepartment.value.payload;
+})
+
+console.log('departmentlist', departmentoptions.value)
+
 const anotherrole:any = [
     {
         label: 'DevOps',
@@ -174,12 +180,19 @@ const checkError:any = () => {
         errors.username = false;
     }
 
-    if (!newUser.value.Department) {
+    // if (!newUser.value.Department) {
+    //     errors.department = true;
+    //     errors.departmentText = 'Department is required'
+    // } else if (newUser.value.Department.length <= 1) {
+    //     errors.department = true;
+    //     errors.departmentText = 'Department needs to be more than a character'
+    // } else {
+    //     errors.department = false;
+    // }
+
+    if (!newUser.value.Department && newUser.value.Department != '0') {
         errors.department = true;
-        errors.departmentText = 'Department is required'
-    } else if (newUser.value.Department.length <= 1) {
-        errors.department = true;
-        errors.departmentText = 'Department needs to be more than a character'
+        errors.departmentText = 'Department is required. Please select a department'
     } else {
         errors.department = false;
     }
@@ -317,6 +330,8 @@ const submit:any = () => {
 
 onMounted(async () => {
     console.log('I am now here')
+    console.log('rolesss',roleoptions.value)
+    console.log('department',departmentoptions.value)
     // const request:any = `${api_url}api/bio/search-bios/{pageIndex}/{pageSize}`;
     // await store.dispatch(courseActionTypes.FetchCourses, request)
 })
@@ -361,7 +376,7 @@ const disabledView:any = 'bg-gray-300';
             </div>
             <div class="grid text-left grid-cols-3 gap-12 mb-10">
                 <div class="grid gap-4">
-                    <label for="email" class="font-semibold">
+                    <label for="email" class="font-semibold text-blue">
                         Email
                     </label>
                     <input type="email" @focus="checkError" @keyup="checkError" v-model="newUser.Email" name="email" id="email" placeholder="Enter email" class="p-4 border rounded-md text-xs focus:outline-none">
@@ -394,7 +409,11 @@ const disabledView:any = 'bg-gray-300';
                     <label for="username" class="font-semibold">
                         Department
                     </label>
-                    <input type="text" @focus="checkError" @keyup="checkError" v-model="newUser.Department" name="username" id="username" class="p-4 border rounded-md text-xs focus:outline-none">
+                    <!-- <input type="text" @focus="checkError" @keyup="checkError" v-model="newUser.Department" name="username" id="username" class="p-4 border rounded-md text-xs focus:outline-none">
+                    <p class="text-[10px] -mt-2 text-red">
+                        {{ errors.department ? errors.departmentText : '' }}
+                    </p> -->
+                    <multiselect v-model="newUser.Department" @clear="checkError" @select="checkError" valueProp="department"  track-by="department" label="name" :options="departmentoptions" placeholder="Select Department" :searchable="true" class="multiselect-blue" />
                     <p class="text-[10px] -mt-2 text-red">
                         {{ errors.department ? errors.departmentText : '' }}
                     </p>

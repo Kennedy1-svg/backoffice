@@ -10,3 +10,5 @@ export const EditRole = 'EditRole'
 export const FetchEditRole = 'FetchEditRole'
 export const AddNewUser = 'AddNewUser'
 export const FetchPermissions = 'FetchPermissions'
+export const FetchDepartmentList = 'FetchDepartmentList'
+

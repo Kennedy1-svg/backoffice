@@ -251,6 +251,12 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('../views/dashboard/payment/Index.vue'),
         meta: { requiresAuth: true },
       },
+      {
+        path: 'department',
+        name: 'Department',
+        component: () => import('../views/dashboard/department/Department.vue'),
+        meta: { requiresAuth: true },
+      },
       // {
       //   path: 'human-resource/employee-birthday',
       //   name: 'EmployeeBirthday',
@@ -311,6 +317,8 @@ const routes: Array<RouteRecordRaw> = [
       //   component: () => import('../components/dashboard/account/ExpenditureDetails.vue'),
       //   meta: { requiresAuth: true },
       // },
+      
+
     ]
   },
   {

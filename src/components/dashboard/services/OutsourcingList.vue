@@ -163,7 +163,7 @@ onMounted(async() => {
 </script>
 
 <template>
-    <div class="main grid">
+    <div class="main grid overflow-scroll">
         <div class="title flex justify-between pr-32 xl:pr-0 items-center mb-10">
             <h1 class="text-2xl font-semibold text-black">Outsourcing List</h1>
             <p class="text-xl font-medium text-primary">Total : {{ totalCount }}</p>
@@ -196,7 +196,7 @@ onMounted(async() => {
                             {{ pageIndex == 1 ? (outsourcing.indexOf(outsourcingitem) + 1) : ((pageIndex - 1) * 10) + (outsourcing.indexOf(outsourcingitem) + 1) }}
                         </td>
                         <td class="border-t-0 font-normal align-middle border-l-0 border-r-0 text-xs whitespace-nowrap py-4 text-left">
-                            {{ outsourcingitem.contactName }}
+                            {{ outsourcingitem.contactPerson }}
                         </td>
                         <td class="border-t-0 px-2 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
                             {{ outsourcingitem.email }}

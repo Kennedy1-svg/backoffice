@@ -115,11 +115,12 @@ onMounted( async () => {
 </script>
 
 <template>
-    <div class="main grid">
+    <div class="main grid overflow-x-scroll">
         <div class="title flex justify-between items-center mb-10">
             <h1 class="text-2xl font-semibold text-black">Course Applicants List</h1>
             <p class="text-xl font-medium text-primary">Total : {{ total_count }}</p>
         </div>
+        <!-- {{ courseapplicants }} -->
         <div class="table mb-28">
             <div class="block w-full overflow-x-scroll xl:overflow-hidden overflow-y-hidden rounded-lg">
                 <table class="overflow-x-scroll border items-center w-full">
@@ -142,6 +143,7 @@ onMounted( async () => {
                     </thead>
 
                     <tbody id="students" class="bg-white">
+                        {{ courseapplicants }}
                         <tr v-for="(applicant) in courseapplicants" :key="applicant.id">
                             <td class="border-t-0 pl-6 pr-3 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap py-4">
                                 {{ pageIndex == 1 ? (courseapplicants.indexOf(applicant) + 1) : ((pageIndex - 1) * 10) + (courseapplicants.indexOf(applicant) + 1) }}

@@ -29,6 +29,8 @@ const status:any = computed(() => {
     return answer
 })
 
+console.log("Job details")
+
 </script>
 
 <template>

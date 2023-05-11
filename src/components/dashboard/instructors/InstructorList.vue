@@ -131,7 +131,7 @@ onMounted( async () => {
 </script>
 
 <template>
-    <div class="main grid">
+    <div class="main grid overflow-scroll">
         <div class="title flex justify-between items-center mb-10">
             <!-- {{ instructors }} -->
             <h1 class="text-2xl font-semibold text-black">Instructor List</h1>

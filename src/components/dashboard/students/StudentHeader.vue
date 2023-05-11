@@ -122,11 +122,11 @@ const close:any = async () => {
 </script>
 
 <template>
-    <div class="main pt-[50px] grid gap-5 pb-[90px]">
-      <div class="top flex justify-between items-center">
+    <div class="main pt-[50px] grid gap-5 pb-[90px] overflow-hidden">
+      <div class="top lg:flex justify-between items-center">
           <h1 class="font-semibold text-2xl">Students</h1>
           <button class="focus:outline-none flex items-center gap-3 text-sm">
-              <p class="text-grey font-semibold">Add Student</p>
+              <p class="text-grey font-semibold my-2">Add Student</p>
               <div class="relative overflow-hdden">
                   <section class="flex h-full justify-ceter items-start">
                       <div onclick="document.getElementById('addstudent').showModal()" id="btn">
@@ -146,7 +146,7 @@ const close:any = async () => {
               </div>
           </button>
       </div>
-      <div class="filter flex bg-white rounded-t-lg justify-between items-center px-11 py-5">
+      <div class="filter grid gap-y-2 lg:flex bg-white rounded-t-lg justify-between items-center px-11 py-5">
         <!-- <div class="status"> -->
           <!-- <Filter>
             <template #info>
@@ -163,7 +163,7 @@ const close:any = async () => {
               </div>
             </template>
           </Filter> -->
-          <div class="w-1/3">
+          <div class="w-2/3 lg:w-1/3 order-last">
             <multiselect v-model="statusField" @clear="deselect" @select="cancan(statusField)" valueProp="value" :options="statusoptions" track-by="label" label="label" placeholder="Status" :searchable="true" class="multiselect-blue" />
           </div>
         <!-- </div> -->

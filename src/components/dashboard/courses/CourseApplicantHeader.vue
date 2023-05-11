@@ -125,11 +125,11 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="main pt-[50px] grid gap-5 pb-[90px]">
-        <div class="top flex justify-between items-center">
+    <div class="main pt-[50px] grid gap-5 pb-[90px] overflow-hidden">
+        <div class="top lg:flex justify-between items-center">
             <h1 class="font-semibold text-2xl">Course Applicants</h1>
             <button class="focus:outline-none flex items-center gap-3 text-sm">
-                <p class="text-grey font-semibold">Add Applicants</p>
+                <p class="text-grey font-semibold my-2">Add Applicants</p>
                 <!-- <Modal>
                     <template #button>
                         <span class="bg-blue p-1 flex justify-center text-white rounded-md"> -->
@@ -141,7 +141,7 @@ onMounted(() => {
                     </template>
                 </Modal> -->
 
-                <div class="relative overflow-hdden">
+                <div class="relative overflow-hidden">
                     <section class="flex h-full justify-ceter items-start">
                         <div onclick="document.getElementById('addcourseapplicant').showModal()" id="btn">
                             <span class="bg-blue p-1 flex justify-center text-white rounded-md">
@@ -160,8 +160,8 @@ onMounted(() => {
                 </div>
             </button>
         </div>
-        <div class="filter flex bg-white rounded-t-lg justify-between items-center px-11 py-5">
-            <div class="status w-1/3">
+        <div class="filter grid gap-y-3 lg:flex bg-white rounded-t-lg justify-between items-center px-11 py-5">
+            <div class="status my-2 order-last w-2/3 lg:w-1/3">
                 <!-- <Filter>
                     <template #info>
                         <span class="pl-5 pr-56">Status</span>

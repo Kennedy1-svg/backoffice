@@ -33,7 +33,7 @@ const props = defineProps({
   },
 });
 
-const { job } = toRefs(props);
+const  { job }  = toRefs(props);
 
 const closeModal:any = async () => {
   emits('close')
@@ -96,8 +96,8 @@ onMounted( async() => {
 </script>
 
 <template>
-    <div class="main grid justify-items-enter item-center py-4 px-10 bg-white rounded">
-        <!-- {{ props.job }} -->
+    <div class="main grid justify-items-enter item-center py-4 px-5 bg-white rounded w-[250px] ml-3">
+        {{ props.job }}
         <!-- <div class="flex">
             <span class="border-2 border-dashed p-1 rounded-full  justify-center items-center">
                 <img :src="courseDetail.thumbnail" class="rounded-full w-60" alt="course thumbnail">
@@ -107,22 +107,22 @@ onMounted( async() => {
         <!-- <img :src="courseDetail.thumbnail" alt="course thumbnail"> -->
         <div class="py-2">
             <!-- <p class="font-semibold py-1">Company</p> -->
-            <p class="text-lg font-semibold py-1">{{ props.job.roleName }}</p>
+            <!-- <p class="text-lg font-semibold py-1">{{ job.roleName }}</p> -->
         </div>
         <div class="bottom">
             <!-- {{ props.jobs }} -->
             <!-- {{ props.jobs.title }} -->
             <div class="py-3 font-medium justify-between items-center">
                 <p>Type</p>
-                <p class="text-grey">{{ startCase(toLower(props.job.typeName)) }}</p>
+                <!-- <p class="text-grey">{{ startCase(toLower(props.job.typeName)) }}</p> -->
             </div>
             <div class="py-3 font-medium justify-between items-center">
                 <p>Experience</p>
-                <p class="text-grey">{{ startCase(toLower(props.job.experienceName)) }}</p>
+                <!-- <p class="text-grey">{{ startCase(toLower(props.job.experienceName)) }}</p> -->
             </div>
             <div class="py-3 font-medium justify-between items-center">
                 <p>No of resources</p>
-                <p class="text-grey">{{ props.job.noOfResource }}</p>
+                <!-- <p class="text-grey">{{ props.job.noOfResource }}</p> -->
             </div>
         </div>
         <!-- {{ props.job.id }} -->

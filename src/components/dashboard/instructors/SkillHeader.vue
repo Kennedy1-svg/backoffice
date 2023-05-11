@@ -75,12 +75,12 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="main pt-[50px] grid gap-5 pb-[90px]">
-        <div class="top flex justify-between items-center">
+    <div class="main pt-[50px] grid gap-5 pb-[90px] overflow-hidden">
+        <div class="top md:flex justify-between items-center">
             <h1 class="font-semibold text-2xl">Skill</h1>
             <div class="buttons flex gap-10">
                 <button class="focus:outline-none flex items-center gap-3 text-sm">
-                    <p class="text-grey font-semibold">Add Skill</p>
+                    <p class="text-grey font-semibold my-2">Add Skill</p>
                 <div class="relative overflow-hdden">
                     <section class="flex h-full justify-ceter items-start">
                         <div onclick="document.getElementById('addskill').showModal()" id="btn">

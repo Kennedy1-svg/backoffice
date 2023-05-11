@@ -60,12 +60,12 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="main pt-[50px] grid gap-5 pb-[90px]">
-        <div class="top flex justify-between items-center">
+    <div class="main pt-[50px] grid gap-5 pb-[90px] overflow-hidden">
+        <div class="top md:flex justify-between items-center">
             <h1 class="font-semibold text-2xl">Roles</h1>
             <div class="buttons flex gap-10">
                 <button class="focus:outline-none flex items-center gap-3 text-sm">
-                    <p class="text-grey font-semibold">Add Role</p>
+                    <p class="text-grey font-semibold my-2">Add Role</p>
                     <div class="relative overflow-hdden">
                         <section class="flex h-full justify-ceter items-start">
                             <div @click="addRole" id="btn">

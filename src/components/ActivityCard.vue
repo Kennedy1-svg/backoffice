@@ -8,14 +8,14 @@ export default {
 </script>
 
 <template>
-    <div class="main border p-10 rounded-md bg-white">
-        <div class="top flex justify-between items-center">
-            <p class="font-bold pb-5 text-[19px]">
+     <div class="main border lg:p-10 rounded-md bg-white shadow-xl p-3">
+        <div class="top lg:flex justify-between items-center block">
+            <p class="font-bold pb-5 text-[19px] text-center text-sm ">
                 <slot name="title">
                     Course Applicant
                 </slot>
             </p>
-            <p class="text-sm text-purple-600">
+            <p class="lg:text-sm text-purple-600 text-center text-xs">
                 <slot name="button">
                     <router-link to="/dashboard/course-management/course-applicants">
                         View All

@@ -2,6 +2,7 @@ import { computed } from 'vue'
 import * as mutationTypes from './constants/mutation'
 import * as actionTypes from './constants/action'
 import { api_url } from '../../../config'
+import { erp_url } from '../../../config'
 import router from '../../../router'
 import { addData, fetchData, editDataPut, deleteData, addEmptyData, addDataFile } from '../../../helpers/api';
 
@@ -11,6 +12,7 @@ export default {
       permission: [],
       permissions: [],
       roles: '',
+      departments: '',
       role: {
         role: '',
         permissions: []
@@ -46,6 +48,12 @@ export default {
         return state.roles
       })
     },
+    getDepartment: (state: any) => {
+      return computed(() => {
+        return state.departments
+      })
+    }
+    ,
     getEditUser: (state: any) => {
       return computed(() => {
         return state.edituser
@@ -95,6 +103,9 @@ export default {
     [mutationTypes.SetRole] (state: any, data: any) {
       state.roles = data
     },
+    [mutationTypes.SetDepartment] (state: any, data: any) {
+      state.departments = data
+    },
     [mutationTypes.SetNewPermission] (state: any, data: any) {
       state.permission = data
     },
@@ -141,6 +152,8 @@ export default {
       const token:any = localStorage.getItem('token')
       console.log('data', data)
       const roles:any = await fetchData(data, token)
+      console.log('departmentrole from role')
+      console.log("dummy data",data)
       console.log('roles', roles)
       if (roles.payload) {
         await commit(mutationTypes.SetRole, roles)
@@ -148,6 +161,25 @@ export default {
         router.push({ name: 'Login' });
       }
     },
+
+    async [actionTypes.FetchDepartmentList]( {commmit}: any, data: any ="dataa is here"){
+      console.log("dummy data", data)
+    },
+
+    // async [actionTypes.FetchDepartment] ({ commit }: any, data: any ='departments in the world') {
+      // const token:any = localStorage.getItem('token')
+      // console.log('data', data)
+      // console.log('departmentrole from dept')
+      // const departmentlist:any = await fetchData(data, token)
+      // console.log('departmentlist', departmentlist)
+      // if (departmentlist.payload) {
+      //   await commit(mutationTypes.SetDepartment, departmentlist)
+      // } else if (departmentlist.response.status === 401) {
+      //   router.push({ name: 'Login' });
+      // }
+    // },
+    
+
     async [actionTypes.FetchEditUser] ({ commit }: any, data: any) {
       const token:any = localStorage.getItem('token')
       console.log('token here')

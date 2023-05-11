@@ -155,11 +155,11 @@ onMounted( async() => {
 </script>
 
 <template>
-    <div class="main pt-[50px] grid gap-5 pb-[90px]">
-        <div class="top flex justify-between items-center">
+    <div class="main pt-[50px] grid gap-5 pb-[90px] overflow-hidden">
+        <div class="top md:flex justify-between items-center">
             <h1 class="font-semibold text-2xl">Cohort</h1>
             <button class="focus:outline-none flex items-center gap-3 text-sm">
-                <p class="text-grey font-semibold">Add Cohort</p>
+                <p class="text-grey font-semibold my-2">Add Cohort</p>
                 <div class="relative overflow-hdden">
                     <section class="flex h-full justify-ceter items-start">
                         <div onclick="document.getElementById('addBatch').showModal()" id="btn">
@@ -180,7 +180,7 @@ onMounted( async() => {
             </button>
         </div>
         <div class="filter bg-white rounded-t-lg justify-between items-center py-5">
-          <div class="filter-items text-grey grid grid-cols-4 gap-3 bg-white rounded-t-lg px-11 py-5">
+          <div class="filter-items text-grey grid grid-cols-1 md:grid-cols-4 gap-3 bg-white rounded-t-lg px-11 py-5">
             <div class="startdate">
                 <Datepicker inputClassName="dp-custom-input" v-model="startDate" :maxDate="endDate" placeholder="Start Date" :format="format" textInput/>
             </div>
