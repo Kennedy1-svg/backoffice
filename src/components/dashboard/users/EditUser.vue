@@ -59,6 +59,11 @@ const roleoptions:any = computed(() => {
     return store.getters.getRole.value.payload;
 })
 
+const departmentoptions:any = computed(() => {
+    return store.getters.getDepartment.value.payload;
+})
+
+
 const anotherrole:any = [
     {
         label: 'DevOps',
@@ -179,12 +184,19 @@ const checkError:any = () => {
         errors.username = false;
     }
 
-    if (!newUser.value.department) {
+    // if (!newUser.value.department) {
+    //     errors.department = true;
+    //     errors.departmentText = 'Department is required'
+    // } else if (newUser.value.department.length <= 1) {
+    //     errors.department = true;
+    //     errors.departmentText = 'Department needs to be more than a character'
+    // } else {
+    //     errors.department = false;
+    // }
+
+    if (!newUser.value.department && newUser.value.department != '0') {
         errors.department = true;
-        errors.departmentText = 'Department is required'
-    } else if (newUser.value.department.length <= 1) {
-        errors.department = true;
-        errors.departmentText = 'Department needs to be more than a character'
+        errors.departmentText = 'Department is required. Please select a department'
     } else {
         errors.department = false;
     }
@@ -486,7 +498,9 @@ const disabledView:any = 'bg-gray-300';
                         <label for="username" class="font-semibold">
                             Department
                         </label>
-                        <input type="text" @focus="checkError" @keyup="checkError" v-model="newUser.department" name="username" id="username" class="p-4 border rounded-md text-xs focus:outline-none">
+                        <!-- <input type="text" @focus="checkError" @keyup="checkError" v-model="newUser.department" name="username" id="username" class="p-4 border rounded-md text-xs focus:outline-none">
+                         -->
+                         <multiselect v-model="newUser.department" @clear="checkError" @select="checkError" valueProp="name" :options="departmentoptions" track-by="name" label="name" placeholder="Select Department" :searchable="true" class="multiselect-blue" />
                         <p class="text-[10px] -mt-2 text-red">
                             {{ errors.department ? errors.departmentText : '' }}
                         </p>

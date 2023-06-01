@@ -2,9 +2,9 @@ import { computed } from 'vue'
 import * as mutationTypes from './constants/mutation'
 import * as actionTypes from './constants/action'
 import { api_url } from '../../../config'
-import { erp_url } from '../../../config'
+import { erp_api } from '../../../config'
 import router from '../../../router'
-import { addData, fetchData, editDataPut, deleteData, addEmptyData, addDataFile } from '../../../helpers/api';
+import { addData, fetchData, editDataPut, deleteData, addEmptyData, addDataFile, getData } from '../../../helpers/api';
 
 export default {
   state: () => ({
@@ -162,22 +162,19 @@ export default {
       }
     },
 
-    async [actionTypes.FetchDepartmentList]( {commmit}: any, data: any ="dataa is here"){
-      console.log("dummy data", data)
-    },
-
-    // async [actionTypes.FetchDepartment] ({ commit }: any, data: any ='departments in the world') {
+    async [actionTypes.FetchDepartmentList] ({ commit }: any, data: any = `${erp_api}api/Department/backoffice/departmentlist` ) {
       // const token:any = localStorage.getItem('token')
-      // console.log('data', data)
-      // console.log('departmentrole from dept')
-      // const departmentlist:any = await fetchData(data, token)
-      // console.log('departmentlist', departmentlist)
-      // if (departmentlist.payload) {
-      //   await commit(mutationTypes.SetDepartment, departmentlist)
-      // } else if (departmentlist.response.status === 401) {
+      console.log('data', data)
+      // console.log('token', token)
+      const departmentlist:any = await getData(data)
+      console.log('departmentlist', departmentlist)
+      if (departmentlist.payload) {
+        await commit(mutationTypes.SetDepartment, departmentlist)
+      } 
+      // else if (departmentlist.response.status === 401) {
       //   router.push({ name: 'Login' });
       // }
-    // },
+    },
     
 
     async [actionTypes.FetchEditUser] ({ commit }: any, data: any) {

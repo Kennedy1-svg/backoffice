@@ -59,7 +59,7 @@ const departmentoptions:any = computed(() => {
     return store.getters.getDepartment.value.payload;
 })
 
-console.log('departmentlist', departmentoptions.value)
+console.log('departmentlist', departmentoptions)
 
 const anotherrole:any = [
     {
@@ -297,7 +297,7 @@ const addUser:any = async () => {
         lastName: newUser.value.LastName,
         email: newUser.value.Email,
         phoneNumber: newUser.value.PhoneNumber,
-        role: newUser.value.Role,
+        roleId: newUser.value.Role,
         department: newUser.value.Department,
         password: randomChars.value,
     }
@@ -333,7 +333,7 @@ onMounted(async () => {
     console.log('rolesss',roleoptions.value)
     console.log('department',departmentoptions.value)
     // const request:any = `${api_url}api/bio/search-bios/{pageIndex}/{pageSize}`;
-    // await store.dispatch(courseActionTypes.FetchCourses, request)
+    await store.dispatch(actionTypes.FetchDepartmentList)
 })
 
 const activeRemove:any = 'border-primary text-primary hover:opacity-80';
@@ -376,7 +376,7 @@ const disabledView:any = 'bg-gray-300';
             </div>
             <div class="grid text-left grid-cols-3 gap-12 mb-10">
                 <div class="grid gap-4">
-                    <label for="email" class="font-semibold text-blue">
+                    <label for="email" class="font-semibold">
                         Email
                     </label>
                     <input type="email" @focus="checkError" @keyup="checkError" v-model="newUser.Email" name="email" id="email" placeholder="Enter email" class="p-4 border rounded-md text-xs focus:outline-none">
@@ -398,7 +398,7 @@ const disabledView:any = 'bg-gray-300';
                         Role
                     </label>
 
-                    <multiselect v-model="newUser.Role" @clear="checkError" @select="checkError" valueProp="role" :options="roleoptions" track-by="role" label="role" placeholder="Select role" :searchable="true" class="multiselect-blue" />
+                    <multiselect v-model="newUser.Role" @clear="checkError" @select="checkError" valueProp="id" :options="roleoptions" track-by="id" label="role" placeholder="Select role" :searchable="true" class="multiselect-blue" />
                     <p class="text-[10px] -mt-2 text-red">
                         {{ errors.role ? errors.roleText : '' }}
                     </p>
@@ -409,11 +409,12 @@ const disabledView:any = 'bg-gray-300';
                     <label for="username" class="font-semibold">
                         Department
                     </label>
+                    <!-- {{ departmentoptions }} -->
                     <!-- <input type="text" @focus="checkError" @keyup="checkError" v-model="newUser.Department" name="username" id="username" class="p-4 border rounded-md text-xs focus:outline-none">
                     <p class="text-[10px] -mt-2 text-red">
                         {{ errors.department ? errors.departmentText : '' }}
                     </p> -->
-                    <multiselect v-model="newUser.Department" @clear="checkError" @select="checkError" valueProp="department"  track-by="department" label="name" :options="departmentoptions" placeholder="Select Department" :searchable="true" class="multiselect-blue" />
+                    <multiselect v-model="newUser.Department" @clear="checkError" @select="checkError" valueProp="name"  track-by="name" label="name" :options="departmentoptions" placeholder="Select Department" :searchable="true" class="multiselect-blue" />
                     <p class="text-[10px] -mt-2 text-red">
                         {{ errors.department ? errors.departmentText : '' }}
                     </p>
